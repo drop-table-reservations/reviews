@@ -7,3 +7,8 @@ test('testFunction returns the input its given', () => {
 test('testFunction returns the input its given again', () => {
   expect(testFunction('hello CircleCI2')).toBe('hello CircleCI2');
 });
+
+test('testFunction returns the input its given again', () => {
+  expect(testFunction('hello ')).toBe('hello CircleCI2');
+});
+
