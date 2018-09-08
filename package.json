@@ -4,7 +4,11 @@
   "description": "Reviews module for DropTable, a front-end clone of OpenTable",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --detectOpenHandles",
+    "start": "node server/index.js",
+    "start-dev": "nodemon server/index.js",
+    "build": "webpack",
+    "build-dev": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -20,6 +24,8 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.2",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
@@ -31,6 +37,7 @@
     "jest": "^23.5.0",
     "jest-puppeteer": "^3.3.1",
     "nodemon": "^1.18.4",
+    "regenerator-runtime": "^0.12.1",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0"
   },
