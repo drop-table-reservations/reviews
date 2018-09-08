@@ -12,6 +12,6 @@ app.get('/hello', (req, res) => {
 
 const testFunction = input => input;
 
-app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
+// app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
 
 module.exports = testFunction;
