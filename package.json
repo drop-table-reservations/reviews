@@ -4,7 +4,11 @@
   "description": "Reviews module for DropTable, a front-end clone of OpenTable",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node server/index.js",
+    "start-dev": "nodemon server/index.js",
+    "build": "webpack",
+    "build-dev": "webpack --watch"
   },
   "repository": {
     "type": "git",
