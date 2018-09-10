@@ -10,8 +10,4 @@ app.get('/hello', (req, res) => {
   res.status(200).json(req);
 });
 
-const testFunction = input => input;
-
-// app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
-
-module.exports = testFunction;
+app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
