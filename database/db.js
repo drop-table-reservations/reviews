@@ -1,0 +1,15 @@
+const mongoose = require('mongoose');
+const { Restaurant } = require('./models/Restaurant.js');
+
+const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/DropTable';
+mongoose.connect(DB_URI, { useNewUrlParser: true });
+
+const getReviews = (restId, cb) => {
+  Restaurant.findById(restId, (err, restaurant) => {
+    if (err) cb(err, null);
+    const reviews = (restaurant) ? restaurant.reviews : null;
+    cb(null, reviews);
+  });
+};
+
+module.exports = { getReviews };
