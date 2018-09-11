@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/drop-table-reservations/reviews.svg?style=svg)](https://circleci.com/gh/drop-table-reservations/reviews)
+[![codecov](https://codecov.io/gh/drop-table-reservations/reviews/branch/master/graph/badge.svg)](https://codecov.io/gh/drop-table-reservations/reviews)
+
 # reviews
 Reviews module for DropTable, a front-end clone of OpenTable
 
