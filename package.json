@@ -12,7 +12,8 @@
     "db-load": "node database/utils/seedMongo.js"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./setupTests.js"
+    "setupTestFrameworkScriptFile": "./setupTests.js",
+    "roots": ["<rootDir>", "<rootDir>/database/models"]
   },
   "repository": {
     "type": "git",
