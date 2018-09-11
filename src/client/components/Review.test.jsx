@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Review from './components/Review';
+import Review from './Review';
 
 describe('Review component', () => {
   test('it should render without throwing an error', () => {
