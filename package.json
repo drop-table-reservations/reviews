@@ -13,7 +13,7 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./setupTests.js",
-    "roots": ["<rootDir>", "<rootDir>/database/models"]
+    "roots": ["<rootDir>", "<rootDir>/database"]
   },
   "repository": {
     "type": "git",
