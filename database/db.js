@@ -6,9 +6,9 @@ mongoose.connect(DB_URI, { useNewUrlParser: true });
 
 const getReviews = (restId, cb) => {
   Restaurant.findById(restId, (err, restaurant) => {
-    if (err) cb(err, null);
+    if (err) return cb(err, null);
     const reviews = (restaurant) ? restaurant.reviews : null;
-    cb(null, reviews);
+    return cb(null, reviews);
   });
 };
 

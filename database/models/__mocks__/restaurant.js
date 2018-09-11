@@ -27,7 +27,7 @@ const Restaurant = {
       case '00000000':
         return cb(new Error('Server issue'), null);
       default:
-        return cb(null, null);
+        return cb('HEY', 'HEY');
     }
   },
 };

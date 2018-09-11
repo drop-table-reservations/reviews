@@ -31,7 +31,7 @@ describe('getReviews function', () => {
   test('it should invoke callback with error if one is returned from db', (done) => {
     const callback = (err, reviews) => {
       expect(reviews).toBe(null);
-      // expect(err.message).toBe('Server issue');
+      expect(err.message).toMatch(/Server issue/);
       done();
     };
     getReviews('00000000', callback);
