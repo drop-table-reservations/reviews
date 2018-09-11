@@ -17,15 +17,6 @@ coverage:
         only_pulls: false
         flags: null
         paths: null
-      client:
-        paths:
-          - src/client*
-      server:
-        paths:
-          - src/server*
-      database:
-        paths:
-          - src/database*
 comment:
   layout: "diff, flags"
   behavior: default
