@@ -3,13 +3,14 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const filePath = path.resolve('./database/src/data/restaurantsReviews.json');
+const filePath = path.resolve('./src/database/data/restaurantsReviews.json');
 const restaurantsReviews = JSON.parse(fs.readFileSync(filePath).toString());
 
 const db = mongoose.createConnection('mongodb://localhost:27017/DropTable');
 
 const reviewSchema = new Schema({
   _id: Number,
+  date: Date,
   username: String,
   overallScore: Number,
   foodScore: Number,
