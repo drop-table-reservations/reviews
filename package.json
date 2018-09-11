@@ -4,15 +4,13 @@
   "description": "Reviews module for DropTable, a front-end clone of OpenTable",
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles",
-    "start": "node server/server.js",
-    "start:dev": "nodemon server/server.js",
+    "test": "jest --coverage",
+    "test:ci": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "start": "node src/server/server.js",
+    "start:dev": "nodemon src/server/server.js",
     "build": "webpack",
     "build:dev": "webpack --watch",
-    "db-load": "node database/utils/seedMongo.js"
-  },
-  "jest": {
-    "setupTestFrameworkScriptFile": "./setupTests.js"
+    "db-load": "node src/database/utils/seedMongo.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +29,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.2",
+    "coveralls": "^3.0.2",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.5.0",
