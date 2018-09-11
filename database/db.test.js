@@ -1,4 +1,4 @@
-jest.mock('./models/restaurant');
+jest.mock('./models/restaurant.js');
 const { getReviews } = require('./db');
 
 describe('getReviews function', () => {
