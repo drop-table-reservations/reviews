@@ -3,7 +3,9 @@ const { Schema } = mongoose;
 
 const reviewSchema = new Schema({
   _id: Number,
+  date: Date,
   username: String,
+  userReviews: Number,
   overallScore: Number,
   foodScore: Number,
   serviceScore: Number,

@@ -2,8 +2,18 @@ const responses = {
   noRest: null,
   noReviews: [],
   reviews: [
-    { _id: 12345, overallScore: 5 },
-    { _id: 43218, overallScore: 2 },
+    {
+      _id: 12345,
+      overallScore: 5,
+      username: 'Chris',
+      userReviews: 5,
+    },
+    {
+      _id: 43218,
+      overallScore: 2,
+      username: 'Larson',
+      userReviews: 2,
+    },
   ],
 };
 
