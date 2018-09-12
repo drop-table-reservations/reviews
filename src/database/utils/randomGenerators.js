@@ -1,11 +1,9 @@
 const faker = require('faker');
 
-const generateRestaurant = () => {
-  return {
-    _id: faker.finance.account(),
-    name: `${faker.commerce.productAdjective()} ${faker.commerce.product()}`,
-  };
-};
+const generateRestaurant = () => ({
+  _id: faker.finance.account(),
+  name: `${faker.commerce.productAdjective()} ${faker.commerce.product()}`,
+});
 
 const generateReview = () => {
   const review = {
