@@ -1,7 +1,7 @@
 import React from 'react';
-import Review from './Review';
+import Entry from './Entry';
 
-class ReviewList extends React.component {
+class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,10 +13,10 @@ class ReviewList extends React.component {
   render() {
     return (
       <div>
-        { this.state.currentReviews.map(review => <Review rating={review.rating} />) }
+        { this.state.currentReviews.map(review => <Entry rating={review.rating} />) }
       </div>
     );
   }
 }
 
-export default ReviewList;
+export default List;

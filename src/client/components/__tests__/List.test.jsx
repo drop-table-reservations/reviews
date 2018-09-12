@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Review from './Review';
+import List from '../List';
 
 describe('Review component', () => {
   test('it should render without throwing an error', () => {
-    expect(shallow(<Review />)
+    expect(shallow(<List />)
       .contains(
         <div className="review">
           <h3>Review from Chris</h3>
@@ -14,14 +14,14 @@ describe('Review component', () => {
   });
 
   test('it should be selectable by class "review"', () => {
-    expect(shallow(<Review />).is('.review')).toBe(true);
+    expect(shallow(<List />).is('.review')).toBe(true);
   });
 
   test('it should mount in a full DOM', () => {
-    expect(mount(<Review />).find('.review').length).toBe(1);
+    expect(mount(<List />).find('.review').length).toBe(1);
   });
 
   test('it should render to static HTML', () => {
-    expect(render(<Review />).text()).toEqual('Review from ChrisThis is a review summary');
+    expect(render(<List />).text()).toEqual('Review from ChrisThis is a review summary');
   });
 });

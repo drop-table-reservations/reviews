@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Review from './components/Review';
+import Reviews from './components/Reviews';
 
 const App = () => (
   <div className="reviews">
     <h1>Hello Rob</h1>
-    <Review />
+    <Reviews />
   </div>
 );
 
