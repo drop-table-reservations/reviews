@@ -4,7 +4,7 @@ import EntryHeader from './EntryHeader';
 import EntryText from './EntryText';
 
 const Entry = () => (
-  <div className="review">
+  <div className="entry">
     <EntryUser />
     <EntryHeader />
     <EntryText />

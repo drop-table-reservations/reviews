@@ -1,27 +1,14 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import List from '../List';
 
-describe('Review component', () => {
-  test('it should render without throwing an error', () => {
-    expect(shallow(<List />)
-      .contains(
-        <div className="review">
-          <h3>Review from Chris</h3>
-          <p>This is a review summary</p>
-        </div>,
-      )).toBe(true);
-  });
+describe('List component', () => {
 
-  test('it should be selectable by class "review"', () => {
-    expect(shallow(<List />).is('.review')).toBe(true);
+  test('it should be selectable by id "lis"', () => {
+    expect(shallow(<List />).is('#list')).toBe(true);
   });
 
   test('it should mount in a full DOM', () => {
-    expect(mount(<List />).find('.review').length).toBe(1);
-  });
-
-  test('it should render to static HTML', () => {
-    expect(render(<List />).text()).toEqual('Review from ChrisThis is a review summary');
+    expect(mount(<List />).find('#list').length).toBe(1);
   });
 });

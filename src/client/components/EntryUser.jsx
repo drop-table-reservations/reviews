@@ -1,9 +1,9 @@
 import React from 'react';
 
 const EntryUser = () => (
-  <div>
+  <div className="entry-user">
     <div className="avatar">Initials</div>
-    <p>X reviews</p>
+    <p>Number of reviews</p>
   </div>
 );
 

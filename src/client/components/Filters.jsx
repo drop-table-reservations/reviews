@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Filters = () => (
-  <h3>Filter and Sort</h3>
+  <div id="filters">
+    <p>Filter and Sort Panel</p>
+  </div>
 );
 
 export default Filters;

@@ -2,26 +2,25 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import Filters from '../Filters';
 
-describe('Review component', () => {
+describe('Filters component', () => {
   test('it should render without throwing an error', () => {
     expect(shallow(<Filters />)
       .contains(
-        <div className="review">
-          <h3>Review from Chris</h3>
-          <p>This is a review summary</p>
+        <div id="filters">
+          <p>Filter and Sort Panel</p>
         </div>,
       )).toBe(true);
   });
 
-  test('it should be selectable by class "review"', () => {
-    expect(shallow(<Filters />).is('.review')).toBe(true);
+  test('it should be selectable by id "filters"', () => {
+    expect(shallow(<Filters />).is('#filters')).toBe(true);
   });
 
   test('it should mount in a full DOM', () => {
-    expect(mount(<Filters />).find('.review').length).toBe(1);
+    expect(mount(<Filters />).find('#filters').length).toBe(1);
   });
 
   test('it should render to static HTML', () => {
-    expect(render(<Filters />).text()).toEqual('Review from ChrisThis is a review summary');
+    expect(render(<Filters />).text()).toEqual('Filter and Sort Panel');
   });
 });

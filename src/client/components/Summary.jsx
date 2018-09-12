@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Summary = () => (
-  <div>
-    <h3>Average Rating: X</h3>
-    <h4>John Doe says: This place is awesome!</h4>
+  <div id="summary">
+    <h4>Ratings panel</h4>
+    <h4>X% of people would recommend it to a friend</h4>
   </div>
 );
 
