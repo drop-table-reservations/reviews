@@ -17,17 +17,41 @@ const generateReview = () => {
     overallScore: 0,
     noiseLevel: faker.random.number({ min: 1, max: 4 }),
     wouldRecommend: true,
-    occasion: faker.random.arrayElement(['Everyday Dining', 'Date',
-      'Special Occassion', 'Business Meal', 'Friends\' Get-Together']),
-    recommendedFor: [faker.random.arrayElement(['Great for Brunch',
-      'Vibrant Bar Scene', 'Neighborhood Gem', 'Paleo Friendly', 'Worth the Drive',
-      'Spicy', 'Late-night Find', 'Great Beer', 'People Watching', 'Romantic',
-      'Scenic View', 'Fun', 'Casual', 'Organic'])],
+    occasion: faker.random.arrayElement([
+      'Everyday Dining',
+      'Date',
+      'Special Occassion',
+      'Business Meal',
+      "Friends' Get-Together",
+    ]),
+    recommendedFor: [
+      faker.random.arrayElement([
+        'Great for Brunch',
+        'Vibrant Bar Scene',
+        'Neighborhood Gem',
+        'Paleo Friendly',
+        'Worth the Drive',
+        'Spicy',
+        'Late-night Find',
+        'Great Beer',
+        'People Watching',
+        'Romantic',
+        'Scenic View',
+        'Fun',
+        'Casual',
+        'Organic',
+      ]),
+    ],
     review: faker.lorem.paragraph(faker.random.number({ min: 1, max: 4 })),
   };
 
-  review.overallScore = Math.ceil((review.foodScore + review.serviceScore
-    + review.ambianceScore + review.valueScore) / 5);
+  review.overallScore = Math.ceil(
+    (review.foodScore +
+      review.serviceScore +
+      review.ambianceScore +
+      review.valueScore) /
+      5,
+  );
   review.wouldRecommend = review.overallScore >= 3;
 
   return review;

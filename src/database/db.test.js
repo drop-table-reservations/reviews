@@ -20,7 +20,7 @@ describe('getReviews function', () => {
     getReviews('87654321', callback);
   });
 
-  test('it should invoke callback with null if retaurant doesn\'t exist', (done) => {
+  test('it should invoke callback with null if restaurant does not exist', (done) => {
     const callback = (err, reviews) => {
       expect(reviews).toBe(null);
       done();

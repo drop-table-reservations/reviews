@@ -4,12 +4,13 @@ import Filters from '../Filters';
 
 describe('Filters component', () => {
   test('it should render without throwing an error', () => {
-    expect(shallow(<Filters />)
-      .contains(
+    expect(
+      shallow(<Filters />).contains(
         <div id="filters">
           <p>Filter and Sort Panel</p>
         </div>,
-      )).toBe(true);
+      ),
+    ).toBe(true);
   });
 
   test('it should be selectable by id "filters"', () => {

@@ -1,10 +1,34 @@
 module.exports = {
-    "extends": "airbnb",
-    "env": {
-        "jest": true,
-        "browser": true,
+  "extends": [
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
     },
-    "rules": {
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
-    }
+  },
+  "env": {
+    "jest": true,
+    "browser": true,
+  },
+  "plugins": [
+      "prettier",
+      "react",
+    ],
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error", 
+      { "devDependencies": true },
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "always",
+      }
+    ]
+  }
 };

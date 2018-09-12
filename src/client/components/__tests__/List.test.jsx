@@ -6,10 +6,14 @@ describe('List component', () => {
   const reviewsToDisplay = [{ _id: 12345, rating: 5 }];
 
   test('it should be selectable by id "lis"', () => {
-    expect(shallow(<List reviewsToDisplay={reviewsToDisplay}/>).is('#list')).toBe(true);
+    expect(
+      shallow(<List reviewsToDisplay={reviewsToDisplay} />).is('#list'),
+    ).toBe(true);
   });
 
   test('it should mount in a full DOM', () => {
-    expect(mount(<List reviewsToDisplay={reviewsToDisplay}/>).find('#list').length).toBe(1);
+    expect(
+      mount(<List reviewsToDisplay={reviewsToDisplay} />).find('#list').length,
+    ).toBe(1);
   });
 });
