@@ -1,36 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { Restaurant } = require('../models/restaurant');
 
 const filePath = path.resolve('./src/database/data/restaurantsReviews.json');
 const restaurantsReviews = JSON.parse(fs.readFileSync(filePath).toString());
 
-const db = mongoose.createConnection('mongodb://localhost:27017/DropTable');
-
-const reviewSchema = new Schema({
-  _id: Number,
-  date: Date,
-  username: String,
-  overallScore: Number,
-  foodScore: Number,
-  serviceScore: Number,
-  ambianceScore: Number,
-  valueScore: Number,
-  noiseLevel: Number,
-  wouldRecommend: Boolean,
-  occasion: String,
-  recommendedFor: [String],
-  review: String,
-});
-
-const restaurantSchema = new Schema({
-  _id: Number,
-  name: String,
-  reviews: [reviewSchema],
-});
-
-const Restaurant = db.model('Restaurant', restaurantSchema);
+const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/DropTable';
+mongoose.connect(DB_URI, { useNewUrlParser: true });
 
 Restaurant.create(restaurantsReviews, (err, success) => {
   if (err) {

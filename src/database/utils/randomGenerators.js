@@ -11,6 +11,7 @@ const generateReview = () => {
   const review = {
     _id: faker.finance.account(),
     username: faker.name.findName(),
+    userReviews: faker.random.number(25),
     foodScore: faker.random.number({ min: 1, max: 5 }),
     serviceScore: faker.random.number({ min: 1, max: 5 }),
     ambianceScore: faker.random.number({ min: 1, max: 5 }),
