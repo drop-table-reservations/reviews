@@ -4,13 +4,14 @@ import Pages from '../Pages';
 
 describe('Pages component', () => {
   test('it should render without throwing an error', () => {
-    expect(shallow(<Pages />)
-      .contains(
+    expect(
+      shallow(<Pages />).contains(
         <div id="pages">
           <button type="submit">Page 1</button>
           <button type="submit">Page N</button>
         </div>,
-      )).toBe(true);
+      ),
+    ).toBe(true);
   });
 
   test('it should be selectable by id "pages"', () => {
