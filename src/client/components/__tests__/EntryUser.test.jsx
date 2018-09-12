@@ -4,13 +4,14 @@ import EntryUser from '../EntryUser';
 
 describe('EntryUser component', () => {
   test('it should render without throwing an error', () => {
-    expect(shallow(<EntryUser />)
-      .contains(
+    expect(
+      shallow(<EntryUser />).contains(
         <div className="entry-user">
           <div className="avatar">Initials</div>
           <p>Number of reviews</p>
         </div>,
-      )).toBe(true);
+      ),
+    ).toBe(true);
   });
 
   test('it should be selectable by class "entry-user"', () => {

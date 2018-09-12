@@ -11,7 +11,9 @@
     "build": "webpack",
     "build:dev": "webpack --watch",
     "db-load": "node src/database/utils/seedMongo.js",
-    "send-coverage": "./node_modules/.bin/codecov"
+    "send-coverage": "./node_modules/.bin/codecov",
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
+    "lint": "eslint --ext .js --ext .jsx src --fix"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,7 @@
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
     "faker": "^4.1.0",
     "jest": "^23.5.0",

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
 const { reviewSchema } = require('./review.js');
+
+const { Schema } = mongoose;
 
 const restaurantSchema = new Schema({
   _id: Number,

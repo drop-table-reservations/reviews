@@ -4,12 +4,13 @@ import EntryText from '../EntryText';
 
 describe('EntryText component', () => {
   test('it should render without throwing an error', () => {
-    expect(shallow(<EntryText />)
-      .contains(
+    expect(
+      shallow(<EntryText />).contains(
         <div className="entry-text">
           <p>Entry text here.</p>
         </div>,
-      )).toBe(true);
+      ),
+    ).toBe(true);
   });
 
   test('it should be selectable by class "entry-text"', () => {
