@@ -7,6 +7,7 @@ const reviewSchema = new Schema({
   date: Date,
   username: String,
   userReviews: Number,
+  userLocation: String,
   overallScore: Number,
   foodScore: Number,
   serviceScore: Number,
