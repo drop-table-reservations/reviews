@@ -50,7 +50,7 @@ const Text = styled.p`
   margin-bottom: 1rem;
 `;
 
-const EntryHeader = (props) => {
+const EntryContent = (props) => {
   const { review } = props;
   const { date, foodScore, serviceScore, ambianceScore, overallScore } = review;
   const text = review.review;
@@ -63,11 +63,11 @@ const EntryHeader = (props) => {
   const stars = [];
   for (let i = 1; i <= 5; i += 1) {
     const red = i <= overallScore;
-    stars.push(<Star red={red} className="fa fa-star" />);
+    stars.push(<Star key={i} red={red} className="fa fa-star" />);
   }
 
   return (
-    <div>
+    <div style={{ marginLeft: '1rem' }} className="entry-content">
       <Div>
         {stars}
         <Dined>{dateString}</Dined>
@@ -89,8 +89,8 @@ const EntryHeader = (props) => {
   );
 };
 
-EntryHeader.propTypes = {
+EntryContent.propTypes = {
   review: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default EntryHeader;
+export default EntryContent;

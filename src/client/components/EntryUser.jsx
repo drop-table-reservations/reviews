@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Div = styled.div`
+const Container = styled.div`
   font-family: BrandonText;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 `;
 
 const avatarColors = ['#bb6acd', '#df4e96', '#6c8ae4', '#d86441'];
@@ -36,13 +39,13 @@ const EntryUser = (props) => {
     userReviews > 1 ? `${userReviews} reviews` : `${userReviews} review`;
 
   return (
-    <Div>
+    <Container className="entry-user">
       <Avatar>{initials}</Avatar>
       <p>{displayName}</p>
       <p>{userLocation}</p>
       <i className="fa fa-comment-o" />
       <span>{reviewString}</span>
-    </Div>
+    </Container>
   );
 };
 
