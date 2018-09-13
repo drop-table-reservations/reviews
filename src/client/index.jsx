@@ -1,13 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Reviews from './components/Reviews';
+import SampleRestaurant from './components/__data__/restaurant.data';
 
-const App = () => (
-  <div className="reviews">
-    <h1>Hello Rob</h1>
-    <Reviews />
-  </div>
-);
+const App = () => <Reviews reviews={SampleRestaurant.reviews} />;
 
 ReactDOM.render(<App />, document.getElementById('app'));
 

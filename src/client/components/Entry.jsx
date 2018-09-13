@@ -1,14 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import EntryUser from './EntryUser';
-import EntryHeader from './EntryHeader';
-import EntryText from './EntryText';
+import EntryContent from './EntryContent';
 
-const Entry = () => (
-  <div className="entry">
-    <EntryUser />
-    <EntryHeader />
-    <EntryText />
-  </div>
-);
+const Container = styled.div`
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d8d9db;
+`;
+
+const Entry = (props) => {
+  const { review } = props;
+  return (
+    <Container className="entry">
+      <EntryUser review={review} />
+      <EntryContent review={review} />
+      <p>Test</p>
+    </Container>
+  );
+};
+
+Entry.propTypes = {
+  review: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default Entry;
