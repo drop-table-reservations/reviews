@@ -43,26 +43,27 @@ const Star = styled.i`
 const EntryHeader = (props) => {
   const { review } = props;
   const { date, foodScore, serviceScore, ambianceScore, overallScore } = review;
-  const formattedDate = moment(date).format('MMMM D, YYYY');
+  const timeAgoInMs = moment(new Date()) - moment(date);
+  const dateString =
+    timeAgoInMs > 604800000
+      ? `Dined on ${moment(date).format('MMMM D, YYYY')}`
+      : `Dined ${moment(date).fromNow()}`;
 
-  const createStars = () => {
-    const stars = [];
-    for (let i = 1; i <= 5; i += 1) {
-      const red = i <= overallScore;
-      stars.push(<Star red={red} className="fa fa-star" />);
-    }
-    return stars;
-  };
+  const stars = [];
+  for (let i = 1; i <= 5; i += 1) {
+    const red = i <= overallScore;
+    stars.push(<Star red={red} className="fa fa-star" />);
+  }
 
   return (
     <div>
       <Div>
-        {createStars()}
-        <Dined>Dined on {formattedDate}</Dined>
+        {stars}
+        <Dined>{dateString}</Dined>
       </Div>
       <Div>
-        <Category>Overall</Category>
-        <Rating>{overallScore}</Rating>
+        <Category className="overall">Overall</Category>
+        <Rating className="overall">{overallScore}</Rating>
         <Category>Food</Category>
         <Rating>{foodScore}</Rating>
         <Category>Service</Category>
