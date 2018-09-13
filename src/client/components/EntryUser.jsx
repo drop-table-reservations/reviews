@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const Div = styled.div`
   font-family: BrandonText;
+  display: flex;
+  flex-direction: column;
 `;
 
 const avatarColors = ['#bb6acd', '#df4e96', '#6c8ae4', '#d86441'];

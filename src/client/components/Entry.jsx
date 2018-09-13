@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import EntryUser from './EntryUser';
-import EntryHeader from './EntryHeader';
+import EntryHeader from './EntryContent';
 import EntryText from './EntryText';
 
 const Entry = (props) => {
@@ -10,7 +10,6 @@ const Entry = (props) => {
     <div className="entry">
       <EntryUser review={review} />
       <EntryHeader review={review} />
-      <EntryText review={review} />
     </div>
   );
 };

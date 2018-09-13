@@ -40,9 +40,20 @@ const Star = styled.i`
   margin-right: 0.25rem;
 `;
 
+const Text = styled.p`
+  font-family: BrandonText;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #2d333f;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`;
+
 const EntryHeader = (props) => {
   const { review } = props;
   const { date, foodScore, serviceScore, ambianceScore, overallScore } = review;
+  const text = review.review;
   const timeAgoInMs = moment(new Date()) - moment(date);
   const dateString =
     timeAgoInMs > 604800000
@@ -71,6 +82,9 @@ const EntryHeader = (props) => {
         <Category>Ambience</Category>
         <Rating hideBullet>{ambianceScore}</Rating>
       </Div>
+      <div>
+        <Text>{text}</Text>
+      </div>
     </div>
   );
 };
