@@ -43,7 +43,7 @@ const EntryUser = (props) => {
       <Avatar>{initials}</Avatar>
       <p>{displayName}</p>
       <p>{userLocation}</p>
-      <i className="fa fa-comment-o" />
+      <i className="fa fa-comment-o fa-flip-horizontal" />
       <span>{reviewString}</span>
     </Container>
   );

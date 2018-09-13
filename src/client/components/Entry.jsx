@@ -17,7 +17,6 @@ const Entry = (props) => {
     <Container className="entry">
       <EntryUser review={review} />
       <EntryContent review={review} />
-      <p>Test</p>
     </Container>
   );
 };
