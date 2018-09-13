@@ -14,6 +14,7 @@ class Reviews extends React.Component {
     };
   }
 
+  // width: 640px
   render() {
     const { reviewsToDisplay } = this.state;
     return (

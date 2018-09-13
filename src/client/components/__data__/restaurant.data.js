@@ -33,7 +33,7 @@ export default {
       occasion: 'Everyday Dining',
       recommendedFor: ['Casual'],
       review:
-        'Vel aliquid incidunt tenetur minima dolores sit asperiores dolor neque. Unde quis at voluptatibus accusantium iusto illo.',
+        'This is a sample three star review. This is a sample three star review. This is a sample three star review.',
     },
     {
       _id: '68730078',
@@ -50,7 +50,7 @@ export default {
       occasion: 'Business Meal',
       recommendedFor: ['Great Beer'],
       review:
-        'Accusamus in quo et in. Possimus fugit nobis aut. Ullam aut dolorem perspiciatis perspiciatis quia nostrum.',
+        'This is a sample five star review. This is a sample five star review. This is a sample five star review. This is a sample five star review. This is a sample five star review.',
     },
   ],
 };
