@@ -38,7 +38,7 @@ export default {
     {
       _id: '68730078',
       date: '2018-09-05T20:00:00.000Z',
-      username: 'Grady Crona',
+      username: 'Zander Crona',
       userReviews: 20,
       foodScore: 5,
       serviceScore: 5,
