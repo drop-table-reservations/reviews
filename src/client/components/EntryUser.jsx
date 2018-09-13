@@ -30,11 +30,22 @@ const Avatar = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-// TODO: add user location to data
+const UserNameLoc = styled.p`
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+`;
+
+const UserReviews = styled.div`
+  margin-top: 0.25rem;
+  font-size: 12px;
+  font-weight: bold;
+  color: #6f737b;
+`;
+
 const EntryUser = (props) => {
   const { review } = props;
-  const { username, userReviews } = review;
-  const userLocation = 'San Francisco';
+  const { username, userReviews, userLocation } = review;
   const nameArr = username.split(' ');
   const displayName = nameArr[0] + nameArr[1][0];
   const initials = nameArr[0][0] + nameArr[1][0];
@@ -43,37 +54,15 @@ const EntryUser = (props) => {
   const reviewString =
     userReviews > 1 ? `${userReviews} reviews` : `${userReviews} review`;
 
-  const nameStyles = {
-    fontSize: '0.875rem',
-    fontWeight: '500',
-    marginBottom: '0.5rem',
-    color: '#2d333f',
-  };
-
-  const locStyles = {
-    fontSize: '0.875rem',
-    fontWeight: '500',
-    marginBottom: '0.5rem',
-    color: '#6f737b',
-  };
-
-  const revStyles = {
-    marginTop: '0.25rem',
-    fontSize: '12px',
-    fontWeight: 'bold',
-    color: '#6f737b',
-    // TODO: add spacing between children?
-  };
-
   return (
     <Container className="entry-user">
       <Avatar colorInd={colorIndex}>{initials}</Avatar>
-      <p style={nameStyles}>{displayName}</p>
-      <p style={locStyles}>{userLocation}</p>
-      <div style={revStyles}>
+      <UserNameLoc style={{ color: '#2d333f' }}>{displayName}</UserNameLoc>
+      <UserNameLoc style={{ color: '#6f737b' }}>{userLocation}</UserNameLoc>
+      <UserReviews>
         <i className="fa fa-comment-o fa-flip-horizontal" />
         <span> {reviewString}</span>
-      </div>
+      </UserReviews>
     </Container>
   );
 };
