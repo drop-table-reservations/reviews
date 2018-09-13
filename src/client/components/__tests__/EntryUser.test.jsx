@@ -16,4 +16,31 @@ describe('EntryUser component', () => {
     // TODO: use wrapper.debug() to explore how styled components show twice
     expect(wrapper.find('.entry-user').length).toBe(2);
   });
+
+  /*
+    test('should render users location', () => {
+    const wrapper = mount(<EntryUser review={review} />);
+    // TODO: use wrapper.debug() to explore how styled components show twice
+    expect(wrapper.find('.entry-user').length).toBe(2);
+  });
+
+      test('should render number of users reviews', () => {
+    const wrapper = mount(<EntryUser review={review} />);
+    // TODO: use wrapper.debug() to explore how styled components show twice
+    expect(wrapper.find('.entry-user').length).toBe(2);
+  });
+
+        test('should add initials in avatar', () => {
+    const wrapper = mount(<EntryUser review={review} />);
+    // TODO: use wrapper.debug() to explore how styled components show twice
+    expect(wrapper.find('.entry-user').length).toBe(2);
+  });
+
+         test('should render avatar as in color scheme', () => {
+    const wrapper = mount(<EntryUser review={review} />);
+    // TODO: use wrapper.debug() to explore how styled components show twice
+    expect(wrapper.find('.entry-user').length).toBe(2);
+  });
+
+  */
 });

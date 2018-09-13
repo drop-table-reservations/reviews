@@ -62,6 +62,7 @@ const EntryUser = (props) => {
     fontSize: '12px',
     fontWeight: 'bold',
     color: '#6f737b',
+    // TODO: add spacing between children?
   };
 
   return (
