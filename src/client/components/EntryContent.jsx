@@ -50,6 +50,7 @@ const Text = styled.p`
   margin-bottom: 1rem;
 `;
 
+// TODO: Add report and helpful button div
 const EntryContent = (props) => {
   const { review } = props;
   const { date, foodScore, serviceScore, ambianceScore, overallScore } = review;
