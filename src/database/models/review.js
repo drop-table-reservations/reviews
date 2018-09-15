@@ -11,7 +11,7 @@ const reviewSchema = new Schema({
   overallScore: Number,
   foodScore: Number,
   serviceScore: Number,
-  ambianceScore: Number,
+  ambienceScore: Number,
   valueScore: Number,
   noiseLevel: Number,
   wouldRecommend: Boolean,

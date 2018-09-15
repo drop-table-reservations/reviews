@@ -10,7 +10,7 @@
     "start:dev": "nodemon src/server/server.js",
     "build": "webpack",
     "build:dev": "webpack --watch",
-    "db-load": "node src/database/utils/seedMongo.js",
+    "load-db": "node src/database/utils/seedMongo.js",
     "send-coverage": "./node_modules/.bin/codecov",
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "lint": "eslint --ext .js --ext .jsx src --fix"
@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "express": "^4.16.3",
+    "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "mongoose": "^5.2.13",
     "prop-types": "^15.6.2",
