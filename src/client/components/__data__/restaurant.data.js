@@ -16,7 +16,7 @@ export default {
       noiseLevel: 1,
       wouldRecommend: true,
       occasion: 'Business Meal',
-      recommendedFor: ['Worth the Drive'],
+      recommendedFor: ['Good for Groups'],
       review: 'This is a sample one star review.',
     },
     {
