@@ -22,6 +22,10 @@ module.exports = {
       "error", 
       { "devDependencies": true },
     ],
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["_id"]},
+    ],
     "prettier/prettier": [
       "error",
       {
