@@ -42,7 +42,7 @@ const Pages = (props) => {
   for (let i = 1; i <= pageCount; i += 1) {
     const active = i === activePage;
     pageButtons.push(
-      <PageButton data-value={i} active={active} onClick={changePage}>
+      <PageButton key={i} data-value={i} active={active} onClick={changePage}>
         {i}
       </PageButton>,
     );
