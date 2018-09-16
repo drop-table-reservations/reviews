@@ -44,7 +44,6 @@ class Reviews extends React.Component {
     fetch('/restaurants/30590734/reviews')
       .then((response) => response.json())
       .then((data) => {
-        // console.log('in componentDidMount.. data is: ', data);
         this.reviews = data.sort((a, b) => new Date(b.date) - new Date(a.date));
         this.setReviewsToDisplay();
       })
@@ -56,11 +55,8 @@ class Reviews extends React.Component {
   setReviewsToDisplay() {
     const { reviews } = this;
     const { stars, categories, page } = this.filters;
-    // console.log('in setReviewsToDisplay(), reviews are..', reviews);
     const filteredReviews = Reviews.applyFilters(reviews, stars, categories);
     const reviewsToDisplay = Reviews.applyPage(filteredReviews, page);
-    // console.log('filteredReviews..', filteredReviews);
-    // console.log('reviewsToDisplay..', reviewsToDisplay);
     this.setState({ filteredReviews, reviewsToDisplay });
   }
 
@@ -106,7 +102,6 @@ class Reviews extends React.Component {
     this.setReviewsToDisplay();
   }
 
-  // width: 640px
   render() {
     const { filteredReviews, reviewsToDisplay } = this.state;
     if (!reviewsToDisplay) return <p>Loading</p>;
