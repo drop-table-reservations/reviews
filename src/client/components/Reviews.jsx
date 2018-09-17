@@ -114,6 +114,7 @@ class Reviews extends React.Component {
           sortReviews={this.sortReviews}
           filterCategories={this.filterCategories}
           filterStars={this.filterStars}
+          activeFilters={this.filters}
         />
         <List reviewsToDisplay={reviewsToDisplay} />
         <Pages
