@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 import Summary from './Summary';
-import Filters from './Filters';
+import Toolbar from './Toolbar';
 import List from './List';
 import Pages from './Pages';
 import sampleRestaurant from './__data__/restaurant.data';
@@ -109,7 +109,7 @@ class Reviews extends React.Component {
     return (
       <div id="reviews">
         <Summary reviews={this.reviews} filterStars={this.filterStars} />
-        <Filters
+        <Toolbar
           filteredReviews={filteredReviews}
           sortReviews={this.sortReviews}
           filterCategories={this.filterCategories}
