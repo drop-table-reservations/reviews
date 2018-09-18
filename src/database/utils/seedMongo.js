@@ -17,6 +17,6 @@ Restaurant.create(restaurantsReviews, (err, success) => {
     console.log('Error loading DB: \n', err);
     return mongoose.disconnect();
   }
-  console.log('Success loading DB: \n', success);
+  console.log(`Loaded ${restaurantsReviews.length} restaurants to DB!`);
   return mongoose.disconnect();
 });
