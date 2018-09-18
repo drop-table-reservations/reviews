@@ -53,7 +53,7 @@ const Text = styled.p`
 // TODO: Add report and helpful button div
 const EntryContent = (props) => {
   const { review } = props;
-  const { date, foodScore, serviceScore, ambianceScore, overallScore } = review;
+  const { date, foodScore, serviceScore, ambienceScore, overallScore } = review;
   const text = review.review;
   const timeAgoInMs = moment(new Date()) - moment(date);
   const dateString =
@@ -81,7 +81,7 @@ const EntryContent = (props) => {
         <Category>Service</Category>
         <Rating>{serviceScore}</Rating>
         <Category>Ambience</Category>
-        <Rating hideBullet>{ambianceScore}</Rating>
+        <Rating hideBullet>{ambienceScore}</Rating>
       </Div>
       <div>
         <Text>{text}</Text>
