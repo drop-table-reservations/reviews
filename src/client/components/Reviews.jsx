@@ -28,7 +28,7 @@ class Reviews extends React.Component {
       reviewsToDisplay: null,
     };
     this.filters = {
-      sort: 'newest',
+      sort: 'Newest',
       stars: null,
       categories: new Set(),
       page: 1,
@@ -64,9 +64,9 @@ class Reviews extends React.Component {
     const { sort, stars } = this.filters;
     if (sort === sortBy || stars !== null) return;
     const reviews = this.reviews.slice(0);
-    if (sortBy === 'highest') {
+    if (sortBy === 'Highest rating') {
       this.reviews = _.orderBy(reviews, ['overallScore'], ['desc']);
-    } else if (sortBy === 'lowest') {
+    } else if (sortBy === 'Lowest rating') {
       this.reviews = _.orderBy(reviews, ['overallScore'], ['asc']);
     } else {
       this.reviews.sort((a, b) => new Date(b.date) - new Date(a.date));

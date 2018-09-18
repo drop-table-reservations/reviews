@@ -21,38 +21,38 @@ class SortDropDown extends React.Component {
     };
     if (expanded) {
       return (
-        <div onClick={expandIt} style={{ position: 'relative' }}>
+        <Container onClick={expandIt}>
           <SelectedOption>
             <p>{sort}</p>
-            <i className="fa fa-chevron-up"></i>
+            <i className="fa fa-chevron-up" />
           </SelectedOption>
           <Menu>
             <SortCheckbox
-              label="newest"
+              label="Newest"
               sortReviews={sortReviews}
-              checked={sort === 'newest'}
+              checked={sort === 'Newest'}
             />
             <SortCheckbox
-              label="highest"
+              label="Highest rating"
               sortReviews={sortReviews}
-              checked={sort === 'highest'}
+              checked={sort === 'Highest rating'}
             />
             <SortCheckbox
-              label="lowest"
+              label="Lowest rating"
               sortReviews={sortReviews}
-              checked={sort === 'lowest'}
+              checked={sort === 'Lowest rating'}
             />
           </Menu>
-        </div>
+        </Container>
       );
     }
     return (
-      <div onClick={expandIt}>
-          <SelectedOption>
-            <p>{sort}</p>
-            <i className="fa fa-chevron-down"></i>
-          </SelectedOption>
-      </div>
+      <Container onClick={expandIt}>
+        <SelectedOption>
+          <p>{sort}</p>
+          <i className="fa fa-chevron-down" />
+        </SelectedOption>
+      </Container>
     );
   }
 }
@@ -64,23 +64,32 @@ SortDropDown.propTypes = {
 
 export default SortDropDown;
 
-const SelectedOption = styled.div`
-  display: flex;
-  justify-content: space-between;
+const Container = styled.div`
   width: 18rem;
-  border: 1px solid #e1e1e1;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  position: relative;
   font-weight: 500;
   font-size: 0.9rem;
 `;
 
+const SelectedOption = styled.div`
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.25rem;
+  width: inherit;
+  border: 1px solid #d8d9db;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  :hover {
+    border: 2px solid #da3743;
+    padding: calc(0.5rem - 1px);
+    cursor: pointer;
+  }
+`;
+
 const Menu = styled.div`
   position: absolute;
-  width: 18rem;
+  width: inherit;
+  border: 1px solid #d8d9db;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  border: 1px solid #e1e1e1;
-  font-weight: 500;
-  font-size: 0.9rem;
   background-color: white;
   :focus {
     outline: none !important;

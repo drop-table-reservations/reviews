@@ -4,14 +4,6 @@ import FilterCheckbox from '../FilterCheckbox';
 
 const mockFilterCategories = jest.fn((targetCategory) => targetCategory);
 
-/*
-  <FilterCheckbox
-    label={category}
-    filterCategories={filterCategories}
-    checked={categories.has(category)}
-  />
-*/
-
 describe('FilterCheckbox component', () => {
   test('should render icon and paragraph', () => {
     const wrapper = shallow(

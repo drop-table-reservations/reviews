@@ -56,6 +56,8 @@ const Container = styled.div`
 const Header = styled.h3`
   font-weight: 500;
   line-height: 1;
+  margin-bottom: 0.8rem;
+  margin-top: 0.875rem;
 `;
 
 const FilterPanel = styled.div`

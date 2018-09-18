@@ -36,7 +36,8 @@ const Styled = styled.div`
   justify-content: flex-start;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   font-family: BrandonText;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: black;
+  :hover {
+    background-color: #f7f7f7;
+    cursor: pointer;
+  }
 `;
