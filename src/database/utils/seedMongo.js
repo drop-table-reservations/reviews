@@ -6,7 +6,8 @@ const { Restaurant } = require('../models/restaurant');
 const filePath = path.resolve('./src/database/data/restaurantsReviews.json');
 const restaurantsReviews = JSON.parse(fs.readFileSync(filePath).toString());
 
-const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/DropTable';
+const DB_URI =
+  process.env.DB_URI || 'mongodb://localhost:27017/DropTableReviews';
 mongoose.connect(
   DB_URI,
   { useNewUrlParser: true },

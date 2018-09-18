@@ -1,4 +1,3 @@
-// import styledNormalize from 'styled-normalize';
 import reset from 'styled-reset';
 import { injectGlobal } from 'styled-components';
 
