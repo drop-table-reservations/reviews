@@ -42,7 +42,9 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:1337/restaurants/30590734/reviews')
+    const { pathname } = window.location;
+    const restId = window.location.pathname.substring(13, pathname.length - 1);
+    fetch(`http://localhost:1337/restaurants/${restId}/reviews`)
       .then((response) => response.json())
       .then((data) => {
         this.reviews = data.sort((a, b) => new Date(b.date) - new Date(a.date));
