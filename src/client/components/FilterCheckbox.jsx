@@ -34,9 +34,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.875rem;
+  margin-bottom: 0.875rem;
   margin-right: 1rem;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: ${(props) => (props.checked ? 'calc(0.5rem - 1px)' : '0.5rem')};
   border: ${(props) => (props.checked ? '2px solid' : '1px solid')};
   border-color: ${(props) => (props.checked ? '#da3743' : '#e1e1e1')};
   border-radius: 0.125rem;
@@ -44,4 +44,9 @@ const Container = styled.div`
   font-weight: 500;
   font-size: 0.9rem;
   color: black;
+  :hover {
+    border: 2px solid #da3743;
+    ${(props) => (!props.checked ? 'padding: calc(0.5rem - 1px)' : '')};
+    cursor: pointer;
+  }
 `;
