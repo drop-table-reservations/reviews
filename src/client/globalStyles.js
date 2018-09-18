@@ -23,7 +23,6 @@ const setFonts = () => {
 
     html {
     font-family: 'BrandonText';
-    font-size: 16px;
     }
   `;
 };
