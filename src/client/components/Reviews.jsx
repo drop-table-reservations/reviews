@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import _ from 'lodash';
 
 import Summary from './Summary';
@@ -41,7 +42,7 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/restaurants/30590734/reviews')
+    fetch('http://localhost:1337/restaurants/30590734/reviews')
       .then((response) => response.json())
       .then((data) => {
         this.reviews = data.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -107,7 +108,7 @@ class Reviews extends React.Component {
     if (!reviewsToDisplay) return <p>Loading</p>;
     const pageCount = Math.ceil(filteredReviews.length / 20);
     return (
-      <div id="reviews">
+      <Container>
         <Summary reviews={this.reviews} filterStars={this.filterStars} />
         <Toolbar
           filteredReviews={filteredReviews}
@@ -122,9 +123,14 @@ class Reviews extends React.Component {
           filterPage={this.filterPage}
           activePage={this.filters.page}
         />
-      </div>
+      </Container>
     );
   }
 }
 
 export default Reviews;
+
+const Container = styled.div`
+  margin: auto;
+  max-width: 640px;
+`;

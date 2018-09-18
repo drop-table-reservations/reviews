@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const { Restaurant } = require('./models/restaurant.js');
 
-const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/DropTable';
+const DB_URI =
+  process.env.DB_URI || 'mongodb://localhost:27017/DropTableReviews';
 mongoose.connect(
   DB_URI,
-  { useNewUrlParser: true },
+  { useNewUrlParser: true }
 );
 
 const getReviews = (restId, cb) => {
