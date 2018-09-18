@@ -4,6 +4,7 @@ import Toolbar from '../Toolbar';
 import sampleRestaurant from '../__data__/restaurant.data';
 
 const mockFilterCategories = jest.fn((targetCategory) => targetCategory);
+const mockSortReviews = jest.fn((targetSort) => targetSort);
 const { reviews } = sampleRestaurant;
 const filteredReviews = reviews;
 const activeFilters = {
@@ -18,6 +19,7 @@ describe('Toolbar component', () => {
     const wrapper = shallow(
       <Toolbar
         filterCategories={mockFilterCategories}
+        sortReviews={mockSortReviews}
         filteredReviews={filteredReviews}
         activeFilters={activeFilters}
       />,

@@ -84,19 +84,19 @@ describe('Reviews component', () => {
         '2018-09-05T20:00:00.000Z',
       ];
       expect(result).toEqual(expected);
-      expect(instance.filters.sort).toBe('newest');
+      expect(instance.filters.sort).toBe('Newest');
       // sort by highest rated
-      instance.sortReviews('highest');
+      instance.sortReviews('Highest rating');
       const resultHigh = instance.reviews.map((review) => review.overallScore);
       const expectedHigh = [5, 3, 1];
       expect(resultHigh).toEqual(expectedHigh);
-      expect(instance.filters.sort).toBe('highest');
+      expect(instance.filters.sort).toBe('Highest rating');
       // sort by lowest rated
-      instance.sortReviews('lowest');
+      instance.sortReviews('Lowest rating');
       const resultLow = instance.reviews.map((review) => review.overallScore);
       const expectedLow = [1, 3, 5];
       expect(resultLow).toEqual(expectedLow);
-      expect(instance.filters.sort).toBe('lowest');
+      expect(instance.filters.sort).toBe('Lowest rating');
       done();
     }, 10);
   });
