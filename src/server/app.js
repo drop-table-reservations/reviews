@@ -5,6 +5,7 @@ const { getReviews } = require('../database/db.js');
 const app = express();
 app.use(cors());
 app.use(express.static('public'));
+app.use('/restaurants/:id', express.static('public'));
 app.use(express.json());
 
 app.get('/restaurants/:restaurantId/reviews', (req, res) => {
