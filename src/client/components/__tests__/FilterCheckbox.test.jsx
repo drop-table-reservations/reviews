@@ -33,7 +33,9 @@ describe('FilterCheckbox component', () => {
         checked
       />,
     );
-    expect(wrapper.find('FilterCheckbox__Icon').html()).toContain('fa-check-square-o');
+    expect(wrapper.find('FilterCheckbox__Icon').html()).toContain(
+      'fa-check-square-o',
+    );
   });
 
   test('should render unchecked icon if checked is false', () => {
@@ -44,7 +46,9 @@ describe('FilterCheckbox component', () => {
         checked={false}
       />,
     );
-    expect(wrapper.find('FilterCheckbox__Icon').html()).toContain('fa-square-o');
+    expect(wrapper.find('FilterCheckbox__Icon').html()).toContain(
+      'fa-square-o',
+    );
   });
 
   test('should invoke filterCategories with the dataset value of label', () => {
