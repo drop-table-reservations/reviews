@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
   entry: './src/client/index.jsx',
-  devtool: 'eval-source-map',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
