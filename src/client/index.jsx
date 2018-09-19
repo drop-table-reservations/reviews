@@ -17,7 +17,7 @@ const App = () => (
           return <Reviews restaurantId={restaurantId} />;
         }}
       />
-      <Route path="/" render={() => <div>Oops! Wrong turn</div>} />
+      <Route path="/" render={() => <p>Oops! Wrong turn</p>} />
     </Switch>
   </Router>
 );
