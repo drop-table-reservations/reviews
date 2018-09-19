@@ -6,7 +6,6 @@ const { getReviews } = require('../database/db.js');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
 
 app.get('/api/restaurants/:restaurantId/reviews', (req, res) => {
   const { restaurantId } = req.params;
