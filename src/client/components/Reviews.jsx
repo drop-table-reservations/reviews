@@ -24,11 +24,9 @@ class Reviews extends React.Component {
 
   constructor(props) {
     super(props);
-    const { restaurantId } = props;
     this.state = {
       filteredReviews: null,
       reviewsToDisplay: null,
-      restaurantId,
     };
     this.filters = {
       sort: 'Newest',
@@ -44,7 +42,7 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    const { restaurantId } = this.state;
+    const { restaurantId } = this.props;
     fetch(`/api/restaurants/${restaurantId}/reviews`)
       .then((response) => response.json())
       .then((data) => {

@@ -106,7 +106,6 @@ describe('Reviews component', () => {
     expect(wrapper.state()).toEqual({
       filteredReviews: null,
       reviewsToDisplay: null,
-      restaurantId: 67806166,
     });
     setTimeout(() => {
       wrapper.update();
