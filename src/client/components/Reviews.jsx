@@ -7,7 +7,6 @@ import Summary from './Summary';
 import Toolbar from './Toolbar';
 import List from './List';
 import Pages from './Pages';
-import sampleRestaurant from './__data__/restaurant.data';
 
 class Reviews extends React.Component {
   static applyFilters(reviews, stars, categories) {
@@ -37,7 +36,7 @@ class Reviews extends React.Component {
       categories: new Set(),
       page: 1,
     };
-    this.reviews = sampleRestaurant.reviews;
+    this.reviews = null;
     this.sortReviews = this.sortReviews.bind(this);
     this.filterStars = this.filterStars.bind(this);
     this.filterPage = this.filterPage.bind(this);
