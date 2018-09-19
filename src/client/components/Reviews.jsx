@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
 
@@ -6,7 +7,6 @@ import Summary from './Summary';
 import Toolbar from './Toolbar';
 import List from './List';
 import Pages from './Pages';
-import sampleRestaurant from './__data__/restaurant.data';
 
 class Reviews extends React.Component {
   static applyFilters(reviews, stars, categories) {
@@ -22,8 +22,8 @@ class Reviews extends React.Component {
     return reviews.slice(maxIndex - 20, maxIndex);
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       filteredReviews: null,
       reviewsToDisplay: null,
@@ -34,7 +34,7 @@ class Reviews extends React.Component {
       categories: new Set(),
       page: 1,
     };
-    this.reviews = sampleRestaurant.reviews;
+    this.reviews = null;
     this.sortReviews = this.sortReviews.bind(this);
     this.filterStars = this.filterStars.bind(this);
     this.filterPage = this.filterPage.bind(this);
@@ -42,9 +42,8 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    const { pathname } = window.location;
-    const restId = window.location.pathname.substring(13, pathname.length - 1);
-    fetch(`http://localhost:1337/restaurants/${restId}/reviews`)
+    const { restaurantId } = this.props;
+    fetch(`/api/restaurants/${restaurantId}/reviews`)
       .then((response) => response.json())
       .then((data) => {
         this.reviews = data.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -129,6 +128,10 @@ class Reviews extends React.Component {
     );
   }
 }
+
+Reviews.propTypes = {
+  restaurantId: PropTypes.number.isRequired,
+};
 
 export default Reviews;
 

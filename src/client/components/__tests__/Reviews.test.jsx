@@ -13,7 +13,7 @@ describe('Reviews component', () => {
   });
 
   test('Reviews renders with fetched data', (done) => {
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews restaurantId={67806166} />);
     expect(wrapper.find('p').html()).toContain('<p>Loading</p>');
     setTimeout(() => {
       wrapper.update();
@@ -26,7 +26,7 @@ describe('Reviews component', () => {
   });
 
   test('filterPage method changes page filter', (done) => {
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews restaurantId={67806166} />);
     setTimeout(() => {
       wrapper.update();
       const instance = wrapper.instance();
@@ -38,7 +38,7 @@ describe('Reviews component', () => {
   });
 
   test('filterStars method changes star filter', (done) => {
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews restaurantId={67806166} />);
     setTimeout(() => {
       wrapper.update();
       const instance = wrapper.instance();
@@ -50,7 +50,7 @@ describe('Reviews component', () => {
   });
 
   test('filterCategories method changes categories filter', (done) => {
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews restaurantId={67806166} />);
     setTimeout(() => {
       wrapper.update();
       const instance = wrapper.instance();
@@ -72,7 +72,7 @@ describe('Reviews component', () => {
     // 3 reviews:
     //    Stars: 1, 3, 5
     //    Dates: '2018-09-12T12:00:00.000Z', '2018-09-06T20:00:00.000Z', '2018-09-05T20:00:00.000Z'
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews restaurantId={67806166} />);
     setTimeout(() => {
       wrapper.update();
       const instance = wrapper.instance();
@@ -102,7 +102,7 @@ describe('Reviews component', () => {
   });
 
   test('setReviewsToDisplay method changes state', (done) => {
-    const wrapper = shallow(<Reviews />);
+    const wrapper = shallow(<Reviews restaurantId={67806166} />);
     expect(wrapper.state()).toEqual({
       filteredReviews: null,
       reviewsToDisplay: null,
