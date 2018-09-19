@@ -20,6 +20,10 @@ app.get('/bundle.js', (req, res) => {
   res.sendFile(path.resolve('public/bundle.js'));
 });
 
+app.get('/bundle.js.map', (req, res) => {
+  res.sendFile(path.resolve('public/bundle.js.map'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('public/index.html'));
 });

@@ -10,8 +10,7 @@ const App = () => (
   <Router>
     <Switch>
       <Route
-        path="/restaurants/:restaurantId/reviews"
-        exact
+        path="/restaurants/:restaurantId"
         render={({ match }) => {
           const { restaurantId } = match.params;
           return <Reviews restaurantId={restaurantId} />;
