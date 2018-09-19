@@ -16,6 +16,10 @@ app.get('/api/restaurants/:restaurantId/reviews', (req, res) => {
   });
 });
 
+app.get('/bundle.js', (req, res) => {
+  res.sendFile(path.resolve('public/bundle.js'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('public/index.html'));
 });
