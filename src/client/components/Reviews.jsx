@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import _ from 'lodash';
 
@@ -22,11 +23,13 @@ class Reviews extends React.Component {
     return reviews.slice(maxIndex - 20, maxIndex);
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { restaurantId } = props;
     this.state = {
       filteredReviews: null,
       reviewsToDisplay: null,
+      restaurantId,
     };
     this.filters = {
       sort: 'Newest',
@@ -42,9 +45,8 @@ class Reviews extends React.Component {
   }
 
   componentDidMount() {
-    const { pathname } = window.location;
-    const restId = window.location.pathname.substring(13, pathname.length - 1);
-    fetch(`http://localhost:1337/restaurants/${restId}/reviews`)
+    const { restaurantId } = this.state;
+    fetch(`/api/restaurants/${restaurantId}/reviews`)
       .then((response) => response.json())
       .then((data) => {
         this.reviews = data.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -129,6 +131,10 @@ class Reviews extends React.Component {
     );
   }
 }
+
+Reviews.propTypes = {
+  restaurantId: PropTypes.number.isRequired,
+};
 
 export default Reviews;
 
