@@ -5,7 +5,7 @@ import Entry from './Entry';
 const List = ({ reviewsToDisplay }) => (
   <div>
     {reviewsToDisplay.map((review) => (
-      <Entry review={review} />
+      <Entry key={review._id} review={review} />
     ))}
   </div>
 );

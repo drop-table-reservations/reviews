@@ -4,20 +4,6 @@ import SortCheckbox from '../SortCheckbox';
 
 const mockSortReviews = jest.fn((targetSort) => targetSort);
 
-/*
-  const { label, checked, sortReviews } = props;
-  const iconToUse = checked ? 'fa fa-check-circle' : 'fa fa-circle-o';
-  const sortBy = (event) => {
-    sortReviews(event.currentTarget.dataset.value);
-  };
-  return (
-    <Styled checked={checked} data-value={label} onClick={sortBy}>
-      <Icon checked={checked} className={iconToUse} />
-      <p>{label}</p>
-    </Styled>
-  );
-*/
-
 describe('SortCheckbox component', () => {
   test('should render icon and paragraph', () => {
     const wrapper = shallow(
