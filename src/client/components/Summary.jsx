@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Summary = (props) => {
-  const { reviews } = props;
-  return <Header>What {reviews.length} People Are Saying</Header>;
-};
+const Summary = ({ reviews }) => (
+  <Header>What {reviews.length} People Are Saying</Header>
+);
 
 Summary.propTypes = {
   reviews: PropTypes.instanceOf(Array).isRequired,

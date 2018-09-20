@@ -2,6 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const EntryUser = ({ review }) => {
+  const { username, userReviews, userLocation } = review;
+  const nameArr = username.split(' ');
+  const displayName = nameArr[0] + nameArr[1][0];
+  const initials = nameArr[0][0] + nameArr[1][0];
+  const colorIndex = username.charCodeAt(0) % 4;
+
+  const reviewString =
+    userReviews > 1 ? `${userReviews} reviews` : `${userReviews} review`;
+
+  // TODO: remove inline styling
+  // TODO: fix tests for class name
+  return (
+    <Container>
+      <Avatar colorInd={colorIndex}>{initials}</Avatar>
+      <UserNameLoc style={{ color: '#2d333f' }}>{displayName}</UserNameLoc>
+      <UserNameLoc style={{ color: '#6f737b' }}>{userLocation}</UserNameLoc>
+      <UserReviews>
+        <i className="fa fa-comment-o fa-flip-horizontal" />
+        <span> {reviewString}</span>
+      </UserReviews>
+    </Container>
+  );
+};
+
+EntryUser.propTypes = {
+  review: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default EntryUser;
+
 const Container = styled.div`
   font-family: BrandonText;
   display: flex;
@@ -42,33 +73,3 @@ const UserReviews = styled.div`
   font-weight: bold;
   color: #6f737b;
 `;
-
-const EntryUser = (props) => {
-  const { review } = props;
-  const { username, userReviews, userLocation } = review;
-  const nameArr = username.split(' ');
-  const displayName = nameArr[0] + nameArr[1][0];
-  const initials = nameArr[0][0] + nameArr[1][0];
-  const colorIndex = username.charCodeAt(0) % 4;
-
-  const reviewString =
-    userReviews > 1 ? `${userReviews} reviews` : `${userReviews} review`;
-
-  return (
-    <Container className="entry-user">
-      <Avatar colorInd={colorIndex}>{initials}</Avatar>
-      <UserNameLoc style={{ color: '#2d333f' }}>{displayName}</UserNameLoc>
-      <UserNameLoc style={{ color: '#6f737b' }}>{userLocation}</UserNameLoc>
-      <UserReviews>
-        <i className="fa fa-comment-o fa-flip-horizontal" />
-        <span> {reviewString}</span>
-      </UserReviews>
-    </Container>
-  );
-};
-
-EntryUser.propTypes = {
-  review: PropTypes.instanceOf(Object).isRequired,
-};
-
-export default EntryUser;

@@ -3,8 +3,55 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import moment from 'moment';
 
-const Div = styled.div`
+// TODO: Add report and helpful button div
+const EntryContent = ({ review }) => {
+  const { date, foodScore, serviceScore, ambienceScore, overallScore } = review;
+  const text = review.review;
+  const timeAgoInMs = moment(new Date()) - moment(date);
+  const dateString =
+    timeAgoInMs > 604800000
+      ? `Dined on ${moment(date).format('MMMM D, YYYY')}`
+      : `Dined ${moment(date).fromNow()}`;
+
+  const stars = [];
+  for (let i = 1; i <= 5; i += 1) {
+    const red = i <= overallScore;
+    stars.push(<Star key={i} red={red} className="fa fa-star" />);
+  }
+
+  return (
+    <Container>
+      <InnerContainer>
+        {stars}
+        <Dined>{dateString}</Dined>
+      </InnerContainer>
+      <InnerContainer>
+        <Category className="overall">Overall</Category>
+        <Rating className="overall">{overallScore}</Rating>
+        <Category>Food</Category>
+        <Rating>{foodScore}</Rating>
+        <Category>Service</Category>
+        <Rating>{serviceScore}</Rating>
+        <Category>Ambience</Category>
+        <Rating hideBullet>{ambienceScore}</Rating>
+      </InnerContainer>
+      <Text>{text}</Text>
+    </Container>
+  );
+};
+
+EntryContent.propTypes = {
+  review: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default EntryContent;
+
+const Container = styled.div`
   font-family: BrandonText;
+  margin-left: 1rem;
+`;
+
+const InnerContainer = styled.div`
   font-size: 0.875rem;
   line-height: 1.43;
   color: #2d333f;
@@ -22,7 +69,6 @@ const Category = styled.span`
 `;
 
 const Rating = styled.span`
-  font-family: BrandonText;
   margin-right: 5px;
   color: #da3743;
   font-weight: bold;
@@ -41,7 +87,6 @@ const Star = styled.i`
 `;
 
 const Text = styled.p`
-  font-family: BrandonText;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
@@ -49,49 +94,3 @@ const Text = styled.p`
   margin-top: 1rem;
   margin-bottom: 1rem;
 `;
-
-// TODO: Add report and helpful button div
-const EntryContent = (props) => {
-  const { review } = props;
-  const { date, foodScore, serviceScore, ambienceScore, overallScore } = review;
-  const text = review.review;
-  const timeAgoInMs = moment(new Date()) - moment(date);
-  const dateString =
-    timeAgoInMs > 604800000
-      ? `Dined on ${moment(date).format('MMMM D, YYYY')}`
-      : `Dined ${moment(date).fromNow()}`;
-
-  const stars = [];
-  for (let i = 1; i <= 5; i += 1) {
-    const red = i <= overallScore;
-    stars.push(<Star key={i} red={red} className="fa fa-star" />);
-  }
-
-  return (
-    <div style={{ marginLeft: '1rem' }} className="entry-content">
-      <Div>
-        {stars}
-        <Dined>{dateString}</Dined>
-      </Div>
-      <Div>
-        <Category className="overall">Overall</Category>
-        <Rating className="overall">{overallScore}</Rating>
-        <Category>Food</Category>
-        <Rating>{foodScore}</Rating>
-        <Category>Service</Category>
-        <Rating>{serviceScore}</Rating>
-        <Category>Ambience</Category>
-        <Rating hideBullet>{ambienceScore}</Rating>
-      </Div>
-      <div>
-        <Text>{text}</Text>
-      </div>
-    </div>
-  );
-};
-
-EntryContent.propTypes = {
-  review: PropTypes.instanceOf(Object).isRequired,
-};
-
-export default EntryContent;
