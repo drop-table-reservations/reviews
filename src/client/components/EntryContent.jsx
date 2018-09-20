@@ -27,8 +27,8 @@ const EntryContent = ({ review }) => {
         <Dined>{dateString}</Dined>
       </InnerContainer>
       <InnerContainer>
-        <Category className="overall">Overall</Category>
-        <Rating className="overall">{overallScore}</Rating>
+        <Category>Overall</Category>
+        <Rating>{overallScore}</Rating>
         <Category>Food</Category>
         <Rating>{foodScore}</Rating>
         <Category>Service</Category>
