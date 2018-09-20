@@ -63,3 +63,6 @@ typings/
 #bundle
 public/bundle.js
 public/bundle.js.map
+
+#vscode
+*.DS_Store
