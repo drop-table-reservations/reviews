@@ -12,8 +12,6 @@ const EntryUser = ({ review }) => {
   const reviewString =
     userReviews > 1 ? `${userReviews} reviews` : `${userReviews} review`;
 
-  // TODO: remove inline styling
-  // TODO: fix tests for class name
   return (
     <Container>
       <Avatar colorInd={colorIndex}>{initials}</Avatar>
@@ -65,6 +63,7 @@ const UserNameLoc = styled.p`
   font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  text-align: center;
 `;
 
 const UserReviews = styled.div`
