@@ -5,7 +5,7 @@ import EntryUser from './EntryUser';
 import EntryContent from './EntryContent';
 
 const Entry = ({ review }) => (
-  <Container className="entry">
+  <Container>
     <EntryUser review={review} />
     <EntryContent review={review} />
   </Container>
