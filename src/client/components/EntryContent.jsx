@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 // TODO: Add report and helpful button div
-// TODO: Get rid of magic number
 const EntryContent = ({ review }) => {
   const { date, foodScore, serviceScore, ambienceScore, overallScore } = review;
   const text = review.review;
