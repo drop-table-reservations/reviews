@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 // TODO: Add report and helpful button div
+// TODO: Get rid of magic number
 const EntryContent = ({ review }) => {
   const { date, foodScore, serviceScore, ambienceScore, overallScore } = review;
   const text = review.review;
   const timeAgoInMs = moment(new Date()) - moment(date);
+  const sevenDaysAgoInMs = 604800000;
   const dateString =
-    timeAgoInMs > 604800000
+    timeAgoInMs > sevenDaysAgoInMs
       ? `Dined on ${moment(date).format('MMMM D, YYYY')}`
       : `Dined ${moment(date).fromNow()}`;
 
