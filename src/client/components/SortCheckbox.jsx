@@ -9,10 +9,10 @@ const SortCheckbox = (props) => {
     sortReviews(event.currentTarget.dataset.value);
   };
   return (
-    <Styled checked={checked} data-value={label} onClick={sortBy}>
+    <Container checked={checked} data-value={label} onClick={sortBy}>
       <Icon checked={checked} className={iconToUse} />
       <p>{label}</p>
-    </Styled>
+    </Container>
   );
 };
 
@@ -30,7 +30,7 @@ const Icon = styled.i`
   margin-right: 0.75rem;
 `;
 
-const Styled = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
