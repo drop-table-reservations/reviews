@@ -27,6 +27,7 @@ class Reviews extends React.Component {
     this.state = {
       filteredReviews: null,
       reviewsToDisplay: null,
+      pageCount: 0,
     };
     this.filters = {
       sort: 'Newest',
@@ -59,7 +60,8 @@ class Reviews extends React.Component {
     const { stars, categories, page } = this.filters;
     const filteredReviews = Reviews.applyFilters(reviews, stars, categories);
     const reviewsToDisplay = Reviews.applyPage(filteredReviews, page);
-    this.setState({ filteredReviews, reviewsToDisplay });
+    const pageCount = Math.ceil(filteredReviews.length / 20);
+    this.setState({ filteredReviews, reviewsToDisplay, pageCount });
   }
 
   sortReviews(sortBy) {
@@ -105,9 +107,8 @@ class Reviews extends React.Component {
   }
 
   render() {
-    const { filteredReviews, reviewsToDisplay } = this.state;
+    const { filteredReviews, reviewsToDisplay, pageCount } = this.state;
     if (!reviewsToDisplay) return <p>Loading</p>;
-    const pageCount = Math.ceil(filteredReviews.length / 20);
     return (
       <Container>
         <Summary reviews={this.reviews} filterStars={this.filterStars} />

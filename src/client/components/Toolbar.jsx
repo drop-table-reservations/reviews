@@ -28,6 +28,7 @@ const Toolbar = (props) => {
       <FilterPanel>
         {categoriesToDisplay.map((category) => (
           <FilterCheckbox
+            key={category}
             label={category}
             filterCategories={filterCategories}
             checked={categories.has(category)}

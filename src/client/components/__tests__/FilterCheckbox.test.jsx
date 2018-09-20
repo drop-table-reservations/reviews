@@ -13,8 +13,20 @@ describe('FilterCheckbox component', () => {
         checked
       />,
     );
+    expect(wrapper.find('FilterCheckbox__Container')).toHaveLength(1);
     expect(wrapper.find('FilterCheckbox__Icon')).toHaveLength(1);
     expect(wrapper.find('p')).toHaveLength(1);
+  });
+
+  test('should render paragraph as label', () => {
+    const wrapper = shallow(
+      <FilterCheckbox
+        label="Good for Groups"
+        filterCategories={mockFilterCategories}
+        checked
+      />,
+    );
+    expect(wrapper.find('p').html()).toContain('Good for Groups');
   });
 
   test('should render checked icon if checked is true', () => {
@@ -26,7 +38,7 @@ describe('FilterCheckbox component', () => {
       />,
     );
     expect(wrapper.find('FilterCheckbox__Icon').html()).toContain(
-      'fa-check-square-o',
+      'fa fa-check-square-o',
     );
   });
 
@@ -39,7 +51,7 @@ describe('FilterCheckbox component', () => {
       />,
     );
     expect(wrapper.find('FilterCheckbox__Icon').html()).toContain(
-      'fa-square-o',
+      'fa fa-square-o',
     );
   });
 

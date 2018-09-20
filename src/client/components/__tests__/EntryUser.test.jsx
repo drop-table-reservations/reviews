@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import EntryUser from '../EntryUser';
 import sampleRestaurant from '../__data__/restaurant.data';
 
@@ -7,18 +7,13 @@ const oneReview = sampleRestaurant.reviews[0];
 const twoReviews = sampleRestaurant.reviews[1];
 
 describe('EntryUser component', () => {
-  test('should be selectable by class "entry-user"', () => {
-    const wrapper = shallow(<EntryUser review={oneReview} />);
-    expect(wrapper.is('.entry-user')).toBe(true);
-  });
-
   test('should mount in a full DOM', () => {
-    const wrapper = mount(<EntryUser review={oneReview} />);
-    expect(wrapper.find('.entry-user').length).toBe(2);
+    const wrapper = shallow(<EntryUser review={oneReview} />);
+    expect(wrapper.find('EntryUser__Container').length).toBe(1);
   });
 
   test(`should display user's first name and last initial`, () => {
-    const wrapper = mount(<EntryUser review={oneReview} />);
+    const wrapper = shallow(<EntryUser review={oneReview} />);
     expect(
       wrapper
         .find('EntryUser__UserNameLoc')
@@ -28,7 +23,7 @@ describe('EntryUser component', () => {
   });
 
   test(`should display user's location`, () => {
-    const wrapper = mount(<EntryUser review={oneReview} />);
+    const wrapper = shallow(<EntryUser review={oneReview} />);
     expect(
       wrapper
         .find('EntryUser__UserNameLoc')
@@ -39,7 +34,7 @@ describe('EntryUser component', () => {
 
   test(`should display number of users reviews`, () => {
     // 1 review (singular)
-    const wrapper1 = mount(<EntryUser review={oneReview} />);
+    const wrapper1 = shallow(<EntryUser review={oneReview} />);
     expect(
       wrapper1
         .find('EntryUser__UserReviews')
@@ -47,7 +42,7 @@ describe('EntryUser component', () => {
         .html(),
     ).toContain(' 1 review<');
     // 2+ reviews (plural)
-    const wrapper2 = mount(<EntryUser review={twoReviews} />);
+    const wrapper2 = shallow(<EntryUser review={twoReviews} />);
     expect(
       wrapper2
         .find('EntryUser__UserReviews')
@@ -57,7 +52,7 @@ describe('EntryUser component', () => {
   });
 
   test(`should display user's initials in avatar`, () => {
-    const wrapper = mount(<EntryUser review={oneReview} />);
+    const wrapper = shallow(<EntryUser review={oneReview} />);
     expect(
       wrapper
         .find('EntryUser__Avatar')

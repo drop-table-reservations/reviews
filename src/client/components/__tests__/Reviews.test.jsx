@@ -106,14 +106,16 @@ describe('Reviews component', () => {
     expect(wrapper.state()).toEqual({
       filteredReviews: null,
       reviewsToDisplay: null,
+      pageCount: 0,
     });
     setTimeout(() => {
       wrapper.update();
-      const { filteredReviews, reviewsToDisplay } = wrapper.state();
+      const { filteredReviews, reviewsToDisplay, pageCount } = wrapper.state();
       expect(filteredReviews).toBeInstanceOf(Array);
       expect(filteredReviews).toHaveLength(3);
       expect(reviewsToDisplay).toBeInstanceOf(Array);
       expect(filteredReviews).toHaveLength(3);
+      expect(pageCount).toBe(1);
       done();
     }, 10);
   });
