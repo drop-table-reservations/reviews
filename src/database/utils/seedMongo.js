@@ -13,7 +13,7 @@ mongoose.connect(
   { useNewUrlParser: true },
 );
 
-Restaurant.create(restaurantsReviews, (err, success) => {
+Restaurant.create(restaurantsReviews, (err) => {
   if (err) {
     console.log('Error loading DB: \n', err);
     return mongoose.disconnect();
