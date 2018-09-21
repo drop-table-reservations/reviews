@@ -1,4 +1,4 @@
-jest.mock('../database/db.js');
+jest.mock('./database/db.js');
 
 const request = require('supertest');
 const app = require('./app.js');

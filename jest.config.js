@@ -4,7 +4,7 @@ module.exports = {
     '**/*.{js,jsx}',
     '!*.js',
     '!.*.js',
-    '!**/src/database/utils/**',
+    '!**/src/server/database/utils/**',
     '!**/public/**',
     '!**/coverage/**',
     '!**/node_modules/**',

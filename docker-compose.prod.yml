@@ -2,9 +2,7 @@ version: '3'
 
 services:
   reviews:
-    build: .
-    volumes:
-      - '.:/app'
+    image: clars701/droptable-reviews:latest
     depends_on:
       - 'database'
     ports: 
