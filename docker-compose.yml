@@ -1,0 +1,28 @@
+version: '3'
+
+# services:
+#   reviews:
+#     build: .
+#     depends_on:
+#       - 'database'
+#     ports: 
+#       - 1337:1337
+#     environment:
+#       WAIT_HOSTS: database:27017
+
+#   database:
+#     image: mongo:latest 
+  
+
+services:
+  reviews:
+    image: clars701/droptable-reviews:latest
+    depends_on:
+      - 'database'
+    ports: 
+      - 1337:1337
+    environment:
+      WAIT_HOSTS: database:27017
+
+  database:
+    image: mongo:latest 

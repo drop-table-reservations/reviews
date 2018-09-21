@@ -1,4 +1,4 @@
-FROM node:10.7.0
+FROM node:10-alpine
 
 RUN mkdir -p /app
 
@@ -6,10 +6,16 @@ WORKDIR /app
 
 COPY . /app
 
-RUN npm install --production
+ENV PORT=1337
 
-ENV DB_URI=mongodb://10.8.65.142:27017/DropTableReviews
+ENV DB_URI=mongodb://database/DropTableReviews
+
+RUN npm install --only=production
+
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait /wait
+
+RUN chmod +x /wait
 
 EXPOSE 1337 
 
-CMD ["npm", "run", "start"]
+CMD /wait && npm run load-db && npm start
