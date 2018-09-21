@@ -6,14 +6,14 @@
   "scripts": {
     "test": "jest --coverage",
     "test:ci": "jest --coverage",
-    "start": "node src/server/server.js",
-    "start:dev": "nodemon src/server/server.js",
+    "start": "node server/server.js",
+    "start:dev": "nodemon server/server.js",
     "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack --config webpack.dev.js --watch",
-    "load-db": "node src/server/database/utils/seedMongo.js",
+    "load-db": "node server/db/utils/seedMongo.js",
     "send-coverage": "./node_modules/.bin/codecov",
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
-    "lint": "eslint --ext .js --ext .jsx src --fix"
+    "lint": "eslint --ext .js,.jsx server client --fix"
   },
   "repository": {
     "type": "git",
