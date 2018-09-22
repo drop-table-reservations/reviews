@@ -10,7 +10,8 @@ services:
     ports: 
       - 1337:1337
     environment:
-      WAIT_HOSTS: database:27017
+      - NODE_ENV=development
+      - WAIT_HOSTS=database:27017
 
   database:
     image: mongo:latest 
