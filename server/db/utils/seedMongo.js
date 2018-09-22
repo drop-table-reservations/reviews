@@ -3,7 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { Restaurant } = require('../models/restaurant');
 
-const filePath = path.resolve('./src/database/data/restaurantsReviews.json');
+const filePath = path.resolve('./server/db/data/restaurantsReviews.json');
 const restaurantsReviews = JSON.parse(fs.readFileSync(filePath).toString());
 
 const DB_URI =

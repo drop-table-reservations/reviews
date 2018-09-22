@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  reviews:
+    build: .
+    volumes:
+      - '.:/app'
+    depends_on:
+      - 'database'
+    ports: 
+      - 1337:1337
+    environment:
+      WAIT_HOSTS: database:27017
+
+  database:
+    image: mongo:latest 
