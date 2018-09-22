@@ -4,7 +4,14 @@ import styled from 'styled-components';
 
 const SummaryChart = (props) => {
   const { summarized, filterStars } = props;
-  const { numReviews, numFiveStars, numFourStars, numThreeStars, numTwoStars, numOneStars } = summarized;
+  const {
+    numReviews,
+    numFiveStars,
+    numFourStars,
+    numThreeStars,
+    numTwoStars,
+    numOneStars,
+  } = summarized;
 
   const dists = [
     0,

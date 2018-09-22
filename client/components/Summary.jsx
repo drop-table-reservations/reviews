@@ -6,7 +6,7 @@ import SummaryStats from './SummaryStats';
 import SummaryChart from './SummaryChart';
 
 const summarizeReviews = (reviews) => {
-  let summary = {
+  const summary = {
     numReviews: 0,
     totalFoodScore: 0,
     totalServiceScore: 0,
@@ -22,18 +22,19 @@ const summarizeReviews = (reviews) => {
     numOneStars: 0,
   };
 
-  let summarized = reviews.reduce((overallSummary, review) => {
-    let wouldRec = review.wouldRecommend ? 1 : 0;
-    let five = review.overallScore === 5 ? 1 : 0;
-    let four = review.overallScore === 4 ? 1 : 0;
-    let three = review.overallScore === 3 ? 1 : 0;
-    let two = review.overallScore === 2 ? 1 : 0;
-    let one = review.overallScore === 1 ? 1 : 0;
+  const summarized = reviews.reduce((overallSummary, review) => {
+    const wouldRec = review.wouldRecommend ? 1 : 0;
+    const five = review.overallScore === 5 ? 1 : 0;
+    const four = review.overallScore === 4 ? 1 : 0;
+    const three = review.overallScore === 3 ? 1 : 0;
+    const two = review.overallScore === 2 ? 1 : 0;
+    const one = review.overallScore === 1 ? 1 : 0;
     return {
       numReviews: overallSummary.numReviews + 1,
       totalFoodScore: overallSummary.totalFoodScore + review.foodScore,
       totalServiceScore: overallSummary.totalServiceScore + review.serviceScore,
-      totalAmbienceScore: overallSummary.totalAmbienceScore + review.ambienceScore,
+      totalAmbienceScore:
+        overallSummary.totalAmbienceScore + review.ambienceScore,
       totalValueScore: overallSummary.totalValueScore + review.valueScore,
       totalNoiseScore: overallSummary.totalNoiseScore + review.noiseLevel,
       totalOverallScore: overallSummary.totalOverallScore + review.overallScore,
@@ -46,13 +47,27 @@ const summarizeReviews = (reviews) => {
     };
   }, summary);
 
-  summarized.averageOverall = Number(summarized.totalOverallScore / summarized.numReviews).toFixed(1);
-  summarized.averageFood = Number(summarized.totalFoodScore / summarized.numReviews).toFixed(1);
-  summarized.averageService = Number(summarized.totalServiceScore / summarized.numReviews).toFixed(1);
-  summarized.averageAmbience = Number(summarized.totalAmbienceScore / summarized.numReviews).toFixed(1);
-  summarized.averageValue = Number(summarized.totalValueScore / summarized.numReviews).toFixed(1);
-  summarized.percWouldRec = Number((summarized.numWouldRecommend / summarized.numReviews) * 100).toFixed();
-  summarized.averageNoise = Number(summarized.totalNoiseScore / summarized.numReviews).toFixed();
+  summarized.averageOverall = Number(
+    summarized.totalOverallScore / summarized.numReviews,
+  ).toFixed(1);
+  summarized.averageFood = Number(
+    summarized.totalFoodScore / summarized.numReviews,
+  ).toFixed(1);
+  summarized.averageService = Number(
+    summarized.totalServiceScore / summarized.numReviews,
+  ).toFixed(1);
+  summarized.averageAmbience = Number(
+    summarized.totalAmbienceScore / summarized.numReviews,
+  ).toFixed(1);
+  summarized.averageValue = Number(
+    summarized.totalValueScore / summarized.numReviews,
+  ).toFixed(1);
+  summarized.percWouldRec = Number(
+    (summarized.numWouldRecommend / summarized.numReviews) * 100,
+  ).toFixed();
+  summarized.averageNoise = Number(
+    summarized.totalNoiseScore / summarized.numReviews,
+  ).toFixed();
   return summarized;
 };
 

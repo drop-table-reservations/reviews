@@ -4,7 +4,14 @@ import styled from 'styled-components';
 
 const SummaryStats = (props) => {
   const { summarized } = props;
-  const { percWouldRec, averageOverall, averageFood, averageService, averageAmbience, averageValue } = summarized;
+  const {
+    percWouldRec,
+    averageOverall,
+    averageFood,
+    averageService,
+    averageAmbience,
+    averageValue,
+  } = summarized;
 
   const starIcons = [];
   for (let i = 1; i <= 5; i += 1) {
@@ -14,9 +21,16 @@ const SummaryStats = (props) => {
 
   return (
     <RevSummary>
-      <p style={{lineHeight: '1.5', fontWeight: '500'}}>Overall ratings and reviews</p>
-      <p style={{paddingTop: '0.75rem'}}>Reviews can only be made by diners who have eaten at this restaurant</p>
-      <StarWrapper>{starIcons}<span>{averageOverall} based on recent ratings</span></StarWrapper>
+      <p style={{ lineHeight: '1.5', fontWeight: '500' }}>
+        Overall ratings and reviews
+      </p>
+      <p style={{ paddingTop: '0.75rem' }}>
+        Reviews can only be made by diners who have eaten at this restaurant
+      </p>
+      <StarWrapper>
+        {starIcons}
+        <span>{averageOverall} based on recent ratings</span>
+      </StarWrapper>
       <ScoreWrapper>
         <Score>
           <ScoreItself>{averageFood}</ScoreItself>
@@ -37,11 +51,16 @@ const SummaryStats = (props) => {
       </ScoreWrapper>
       <Highlight>
         <i className="fa fa-volume-up" />
-        <HighlightText><strong>Noise ·</strong> Moderate</HighlightText>
+        <HighlightText>
+          <strong>Noise ·</strong> Moderate
+        </HighlightText>
       </Highlight>
       <Highlight>
-        <i className="fa fa-thumbs-o-up"/>
-        <HighlightText><strong>{percWouldRec}% of people</strong> would recommend it to a friend</HighlightText>
+        <i className="fa fa-thumbs-o-up" />
+        <HighlightText>
+          <strong>{percWouldRec}% of people</strong> would recommend it to a
+          friend
+        </HighlightText>
       </Highlight>
     </RevSummary>
   );
