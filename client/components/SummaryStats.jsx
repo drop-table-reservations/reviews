@@ -15,7 +15,7 @@ const SummaryStats = (props) => {
 
   const starIcons = [];
   for (let i = 1; i <= 5; i += 1) {
-    const red = i <= averageOverall;
+    const red = i <= Math.round(averageOverall);
     starIcons.push(<Star key={i} red={red} className="fa fa-star" />);
   }
 
