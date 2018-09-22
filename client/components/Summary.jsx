@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Summary = ({ reviews }) => {
+const Summary = (props) => {
+  const { reviews, filterStars } = props;
+
   const numReviews = reviews.length;
   // TODO: convert to reduce
   const fiveStarCount = reviews.filter((review) => review.overallScore === 5)
@@ -25,12 +27,17 @@ const Summary = ({ reviews }) => {
     Math.floor((fiveStarCount * 100) / numReviews),
   ];
 
+  const filterStarsTo = (event) => {
+    const stars = Number(event.target.dataset.stars);
+    filterStars(stars);
+  };
+
   const stars = [];
   for (let i = 5; i >= 1; i -= 1) {
     stars.push(
       <div>
         <span>{i}</span>
-        <StarBar redWidth={dists[i]} />
+        <StarBar redWidth={dists[i]} data-stars={i} onClick={filterStarsTo} />
       </div>,
     );
   }
@@ -39,7 +46,10 @@ const Summary = ({ reviews }) => {
     <Container>
       <Header>What {reviews.length} People Are Saying</Header>
       <InnerContainer>
-        <RevSummary />
+        <RevSummary>
+          <p>Overall ratings and reviews</p>
+          <p>Reviews can only be made by diners who have eaten at this restaurant</p>
+        </RevSummary>
         <StarDist>{stars}</StarDist>
       </InnerContainer>
     </Container>
@@ -48,6 +58,7 @@ const Summary = ({ reviews }) => {
 
 Summary.propTypes = {
   reviews: PropTypes.instanceOf(Array).isRequired,
+  filterStars: PropTypes.func.isRequired,
 };
 
 export default Summary;

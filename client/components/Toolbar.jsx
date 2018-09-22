@@ -8,10 +8,11 @@ const Toolbar = (props) => {
   const {
     filteredReviews,
     filterCategories,
+    filterStars,
     activeFilters,
     sortReviews,
   } = props;
-  const { categories, sort } = activeFilters;
+  const { categories, sort, stars } = activeFilters;
 
   const reviewCategories = new Set();
   filteredReviews.forEach((review) => {
@@ -19,6 +20,14 @@ const Toolbar = (props) => {
   });
 
   const categoriesToDisplay = Array.from(reviewCategories);
+  const starFilter = stars ? (
+    <FilterCheckbox
+      key={stars}
+      label={stars}
+      filterCategories={filterStars}
+      checked
+    />
+  ) : null;
 
   return (
     <Container>
@@ -26,6 +35,7 @@ const Toolbar = (props) => {
       <SortDropDown sort={sort} sortReviews={sortReviews} />
       <Header>Filters</Header>
       <FilterPanel>
+        {starFilter}
         {categoriesToDisplay.map((category) => (
           <FilterCheckbox
             key={category}
@@ -42,6 +52,7 @@ const Toolbar = (props) => {
 Toolbar.propTypes = {
   filteredReviews: PropTypes.instanceOf(Array).isRequired,
   filterCategories: PropTypes.func.isRequired,
+  filterStars: PropTypes.func.isRequired,
   sortReviews: PropTypes.func.isRequired,
   activeFilters: PropTypes.instanceOf(Object).isRequired,
 };

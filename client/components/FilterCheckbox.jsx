@@ -5,7 +5,11 @@ import styled from 'styled-components';
 const FilterCheckbox = (props) => {
   const { label, checked, filterCategories } = props;
   const filterByCategory = (event) => {
-    filterCategories(event.currentTarget.dataset.value);
+    // TODO: clean this up!
+    const value =
+      Number(event.currentTarget.dataset.value) ||
+      event.currentTarget.dataset.value;
+    filterCategories(value);
   };
   const iconToUse = checked ? 'fa fa-check-square-o' : 'fa fa-square-o';
   return (
