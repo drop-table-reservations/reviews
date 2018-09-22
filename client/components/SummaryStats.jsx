@@ -16,12 +16,25 @@ const SummaryStats = (props) => {
     <RevSummary>
       <p>Overall ratings and reviews</p>
       <p>Reviews can only be made by diners who have eaten at this restaurant</p>
-      {starIcons}
-      <p>{averageOverall} based on recent ratings</p>
-      <p>{averageFood} food</p>
-      <p>{averageService} service</p>
-      <p>{averageAmbience} ambience</p>
-      <p>{averageValue} value</p>
+      <div>{starIcons}<span>{averageOverall} based on recent ratings</span></div>
+      <ScoreWrapper>
+        <Score>
+          <p>{averageFood}</p>
+          <p>Food</p>
+        </Score>
+        <Score>
+          <p>{averageService}</p>
+          <p>Service</p>
+        </Score>
+        <Score>
+          <p>{averageAmbience}</p>
+          <p>Ambience</p>
+        </Score>
+        <Score noBorder>
+          <p>{averageValue}</p>
+          <p>Value</p>
+        </Score>
+      </ScoreWrapper>
       <p className="fa fa-volume-up">Noise - moderate</p>
       <p className="fa fa-thumbs-o-up">{percWouldRec}% would recommend</p>
     </RevSummary>
@@ -33,6 +46,19 @@ SummaryStats.propTypes = {
 };
 
 export default SummaryStats;
+
+const ScoreWrapper = styled.div`
+  display: flex;
+`;
+
+const Score = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5px;
+  padding-right: 5px;
+  ${(props) => (!props.noBorder ? 'border-right: solid 1px #e1e1e1' : '')};
+`;
 
 const RevSummary = styled.div`
   display: flex;

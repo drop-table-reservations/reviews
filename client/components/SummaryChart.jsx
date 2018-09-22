@@ -68,9 +68,6 @@ const StarBar = styled.div`
   height: 1rem;
   width: 224px;
   border: 1px solid #e1e1e1;
-  /* margin-top: -1px;
-  margin-bottom: -1px;
-  overflow: hidden; */
   padding: 0.1rem;
   ${InnerContainer}:hover & {
     border: 2px solid #da3743;
