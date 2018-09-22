@@ -14,9 +14,9 @@ const SummaryStats = (props) => {
 
   return (
     <RevSummary>
-      <p>Overall ratings and reviews</p>
-      <p>Reviews can only be made by diners who have eaten at this restaurant</p>
-      <div>{starIcons}<span>{averageOverall} based on recent ratings</span></div>
+      <p style={{lineHeight: '1.5', fontWeight: '500'}}>Overall ratings and reviews</p>
+      <p style={{paddingTop: '0.75rem'}}>Reviews can only be made by diners who have eaten at this restaurant</p>
+      <StarWrapper>{starIcons}<span>{averageOverall} based on recent ratings</span></StarWrapper>
       <ScoreWrapper>
         <Score>
           <p>{averageFood}</p>
@@ -35,8 +35,8 @@ const SummaryStats = (props) => {
           <p>Value</p>
         </Score>
       </ScoreWrapper>
-      <p className="fa fa-volume-up">Noise - moderate</p>
-      <p className="fa fa-thumbs-o-up">{percWouldRec}% would recommend</p>
+      <p style={{marginTop: '0.5rem'}} className="fa fa-volume-up">Noise - moderate</p>
+      <p style={{marginTop: '0.5rem'}} className="fa fa-thumbs-o-up">{percWouldRec}% would recommend</p>
     </RevSummary>
   );
 };
@@ -47,16 +47,26 @@ SummaryStats.propTypes = {
 
 export default SummaryStats;
 
+const StarWrapper = styled.div`
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.43;
+`;
+
 const ScoreWrapper = styled.div`
   display: flex;
+  padding-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
 `;
 
 const Score = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 5px;
-  padding-right: 5px;
+  padding: 0 0.5rem;
   ${(props) => (!props.noBorder ? 'border-right: solid 1px #e1e1e1' : '')};
 `;
 
