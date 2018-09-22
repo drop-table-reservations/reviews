@@ -58,11 +58,12 @@ const Container = styled.div`
 const InnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 0.75rem;
 `;
 
 const StarNum = styled.p`
   width: 16px;
+  margin-right: 0.5rem;
   text-align: center;
   ${InnerContainer}:hover & {
     text-decoration: underline;
@@ -73,8 +74,8 @@ const StarBar = styled.div`
   background: ${(props) =>
     `linear-gradient(90deg, #da3743 ${props.redWidth}%, #ffffff 0%)`};
   line-height: 2rem;
-  height: 1rem;
-  width: 224px;
+  height: 0.6rem;
+  width: 232px;
   border: 1px solid #e1e1e1;
   padding: 0.1rem;
   ${InnerContainer}:hover & {

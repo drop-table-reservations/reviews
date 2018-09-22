@@ -101,6 +101,7 @@ const InnerContainer = styled.div`
   display: flex;
   border-top: solid 1px #e1e1e1;
   padding-top: 1rem;
+  justify-content: space-around;
 `;
 
 const Header = styled.p`
