@@ -5,8 +5,14 @@ import moment from 'moment';
 
 // TODO: Add report and helpful button div
 const EntryContent = ({ review }) => {
-  const { date, foodScore, serviceScore, ambienceScore, overallScore } = review;
-  const text = review.review;
+  const {
+    date,
+    foodScore,
+    serviceScore,
+    ambienceScore,
+    overallScore,
+    text,
+  } = review;
   const timeAgoInMs = moment(new Date()) - moment(date);
   const sevenDaysAgoInMs = 604800000;
   const dateString =

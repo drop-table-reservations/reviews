@@ -17,7 +17,7 @@ export default {
       wouldRecommend: true,
       occasion: 'Business Meal',
       recommendedFor: ['Good for Groups'],
-      review: 'This is a sample one star review.',
+      text: 'This is a sample one star review.',
     },
     {
       _id: '34823729',
@@ -34,7 +34,7 @@ export default {
       wouldRecommend: true,
       occasion: 'Everyday Dining',
       recommendedFor: ['Casual'],
-      review:
+      text:
         'This is a sample three star review. This is a sample three star review. This is a sample three star review.',
     },
     {
@@ -52,7 +52,7 @@ export default {
       wouldRecommend: true,
       occasion: 'Business Meal',
       recommendedFor: ['Great Beer'],
-      review:
+      text:
         'This is a sample five star review. This is a sample five star review. This is a sample five star review. This is a sample five star review. This is a sample five star review.',
     },
   ],

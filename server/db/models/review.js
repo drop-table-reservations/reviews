@@ -17,7 +17,7 @@ const reviewSchema = new Schema({
   wouldRecommend: Boolean,
   occasion: String,
   recommendedFor: [String],
-  review: String,
+  text: String,
 });
 
 const Review = mongoose.model('Review', reviewSchema);
