@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import SummaryStats from './SummaryStats';
+import SummaryChart from './SummaryChart';
+
 const summarizeReviews = (reviews) => {
   let summary = {
     numReviews: 0,
@@ -55,58 +58,14 @@ const summarizeReviews = (reviews) => {
 
 const Summary = (props) => {
   const { reviews, filterStars } = props;
-
   const summarized = summarizeReviews(reviews);
-  const { numReviews, numFiveStars, numFourStars, numThreeStars, numTwoStars, numOneStars } = summarized;
-  const { percWouldRec, averageOverall, averageFood, averageService, averageAmbience, averageValue, averageNoise } = summarized;
-
-  const dists = [
-    0,
-    Math.floor((numOneStars * 100) / numReviews),
-    Math.floor((numTwoStars * 100) / numReviews),
-    Math.floor((numThreeStars * 100) / numReviews),
-    Math.floor((numFourStars * 100) / numReviews),
-    Math.floor((numFiveStars * 100) / numReviews),
-  ];
-
-  const filterStarsTo = (event) => {
-    const stars = Number(event.target.dataset.stars);
-    filterStars(stars);
-  };
-
-  const stars = [];
-  for (let i = 5; i >= 1; i -= 1) {
-    stars.push(
-      <div>
-        <span>{i}</span>
-        <StarBar redWidth={dists[i]} data-stars={i} onClick={filterStarsTo} />
-      </div>,
-    );
-  }
-
-  const starIcons = [];
-  for (let i = 1; i <= 5; i += 1) {
-    const red = i <= averageOverall;
-    starIcons.push(<Star key={i} red={red} className="fa fa-star" />);
-  }
 
   return (
     <Container>
       <Header>What {reviews.length} People Are Saying</Header>
       <InnerContainer>
-        <RevSummary>
-          <p>Overall ratings and reviews</p>
-          <p>Reviews can only be made by diners who have eaten at this restaurant</p>
-          {starIcons}
-          <p>{averageOverall} based on recent ratings</p>
-          <p>{averageFood} food</p>
-          <p>{averageService} service</p>
-          <p>{averageAmbience} ambience</p>
-          <p>{averageValue} value</p>
-          <p class="fa fa-volume-up">Noise - moderate</p>
-          <p class="fa fa-thumbs-o-up">{percWouldRec}% would recommend</p>
-        </RevSummary>
-        <StarDist>{stars}</StarDist>
+        <SummaryStats summarized={summarized} />
+        <SummaryChart summarized={summarized} filterStars={filterStars} />
       </InnerContainer>
     </Container>
   );
@@ -125,41 +84,6 @@ const Container = styled.div`
 
 const InnerContainer = styled.div`
   display: flex;
-`;
-
-const RevSummary = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 256px;
-  max-width: 352px;
-`;
-
-const Star = styled.i`
-  color: ${(props) => (props.red ? '#da3743' : '#e1e1e1')};
-  font-size: 17px;
-  width: 16px;
-  height: 16px;
-  margin-right: 0.25rem;
-`;
-
-const StarDist = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 256px;
-  min-width: 256px;
-`;
-
-const StarBar = styled.div`
-  background: ${(props) =>
-    `linear-gradient(90deg, #da3743 ${props.redWidth}%, #ffffff 0%)`};
-  line-height: 2rem;
-  height: 1rem;
-  border: 1px solid #e1e1e1;
-  :hover {
-    border: 2px solid #da3743;
-    padding: calc(0.5rem - 1px);
-    cursor: pointer;
-  }
 `;
 
 const Header = styled.p`
