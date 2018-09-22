@@ -48,13 +48,19 @@ const generateReview = () => {
   };
 
   const bias = faker.random.number({ min: -1, max: 1 });
-  review.overallScore = Math.ceil(
-    (review.foodScore +
-      review.serviceScore +
-      review.ambienceScore +
-      review.valueScore) /
-      4 +
-      bias,
+  review.overallScore = Math.max(
+    Math.max(
+      Math.ceil(
+        (review.foodScore +
+          review.serviceScore +
+          review.ambienceScore +
+          review.valueScore) /
+          4 +
+          bias,
+      ),
+      0,
+    ),
+    5,
   );
 
   review.wouldRecommend = review.overallScore >= 3;
