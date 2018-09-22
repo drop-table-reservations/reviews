@@ -5,6 +5,46 @@ import styled from 'styled-components';
 import SummaryStats from './SummaryStats';
 import SummaryChart from './SummaryChart';
 
+const Summary = (props) => {
+  const { reviews, filterStars } = props;
+  const summarized = summarizeReviews(reviews);
+
+  return (
+    <Container>
+      <Header>What {reviews.length} People Are Saying</Header>
+      <InnerContainer>
+        <SummaryStats summarized={summarized} />
+        <SummaryChart summarized={summarized} filterStars={filterStars} />
+      </InnerContainer>
+    </Container>
+  );
+};
+
+Summary.propTypes = {
+  reviews: PropTypes.instanceOf(Array).isRequired,
+  filterStars: PropTypes.func.isRequired,
+};
+
+export default Summary;
+
+const Container = styled.div`
+  background: #ffffff;
+`;
+
+const InnerContainer = styled.div`
+  display: flex;
+  border-top: solid 1px #e1e1e1;
+  padding-top: 1rem;
+  justify-content: space-around;
+`;
+
+const Header = styled.p`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: '#2d333f';
+  padding-bottom: 1rem;
+`;
+
 const summarizeReviews = (reviews) => {
   const summary = {
     numReviews: 0,
@@ -70,43 +110,3 @@ const summarizeReviews = (reviews) => {
   ).toFixed();
   return summarized;
 };
-
-const Summary = (props) => {
-  const { reviews, filterStars } = props;
-  const summarized = summarizeReviews(reviews);
-
-  return (
-    <Container>
-      <Header>What {reviews.length} People Are Saying</Header>
-      <InnerContainer>
-        <SummaryStats summarized={summarized} />
-        <SummaryChart summarized={summarized} filterStars={filterStars} />
-      </InnerContainer>
-    </Container>
-  );
-};
-
-Summary.propTypes = {
-  reviews: PropTypes.instanceOf(Array).isRequired,
-  filterStars: PropTypes.func.isRequired,
-};
-
-export default Summary;
-
-const Container = styled.div`
-  background: #ffffff;
-`;
-
-const InnerContainer = styled.div`
-  display: flex;
-  border-top: solid 1px #e1e1e1;
-  padding-top: 1rem;
-  justify-content: space-around;
-`;
-
-const Header = styled.p`
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: '#2d333f';
-  padding-bottom: 1rem;
-`;
