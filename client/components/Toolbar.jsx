@@ -60,7 +60,7 @@ Toolbar.propTypes = {
 export default Toolbar;
 
 const Container = styled.div`
-  padding-top: 2rem;
+  padding-top: 1rem;
   border-top: 1px solid #e1e1e1;
   font-family: BrandonText;
 `;

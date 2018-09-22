@@ -19,24 +19,30 @@ const SummaryStats = (props) => {
       <StarWrapper>{starIcons}<span>{averageOverall} based on recent ratings</span></StarWrapper>
       <ScoreWrapper>
         <Score>
-          <p>{averageFood}</p>
-          <p>Food</p>
+          <ScoreItself>{averageFood}</ScoreItself>
+          <ScoreCategory>Food</ScoreCategory>
         </Score>
         <Score>
-          <p>{averageService}</p>
-          <p>Service</p>
+          <ScoreItself>{averageService}</ScoreItself>
+          <ScoreCategory>Service</ScoreCategory>
         </Score>
         <Score>
-          <p>{averageAmbience}</p>
-          <p>Ambience</p>
+          <ScoreItself>{averageAmbience}</ScoreItself>
+          <ScoreCategory>Ambience</ScoreCategory>
         </Score>
         <Score noBorder>
-          <p>{averageValue}</p>
-          <p>Value</p>
+          <ScoreItself>{averageValue}</ScoreItself>
+          <ScoreCategory>Value</ScoreCategory>
         </Score>
       </ScoreWrapper>
-      <p style={{marginTop: '0.5rem'}} className="fa fa-volume-up">Noise - moderate</p>
-      <p style={{marginTop: '0.5rem'}} className="fa fa-thumbs-o-up">{percWouldRec}% would recommend</p>
+      <Highlight>
+        <i className="fa fa-volume-up" />
+        <HighlightText><strong>Noise ·</strong> Moderate</HighlightText>
+      </Highlight>
+      <Highlight>
+        <i className="fa fa-thumbs-o-up"/>
+        <HighlightText><strong>{percWouldRec}% of people</strong> would recommend it to a friend</HighlightText>
+      </Highlight>
     </RevSummary>
   );
 };
@@ -57,9 +63,11 @@ const StarWrapper = styled.div`
 
 const ScoreWrapper = styled.div`
   display: flex;
-  padding-bottom: 1rem;
   font-weight: 500;
-  font-size: 0.875rem;
+`;
+
+const ScoreItself = styled.p`
+  line-height: 1.33;
 `;
 
 const Score = styled.div`
@@ -70,11 +78,17 @@ const Score = styled.div`
   ${(props) => (!props.noBorder ? 'border-right: solid 1px #e1e1e1' : '')};
 `;
 
+const ScoreCategory = styled.p`
+  font-size: 0.875rem;
+  font-weight: normal;
+`;
+
 const RevSummary = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 256px;
   max-width: 352px;
+  margin-bottom: 2rem;
 `;
 
 const Star = styled.i`
@@ -83,4 +97,21 @@ const Star = styled.i`
   width: 16px;
   height: 16px;
   margin-right: 0.25rem;
+`;
+
+const Highlight = styled.div`
+  padding-top: 1rem;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 1.43;
+`;
+
+const HighlightText = styled.span`
+  > strong {
+    font-weight: 500;
+  }
+  margin-left: 0.5rem;
+  font-family: BrandonText;
+  font-size: 0.875rem;
 `;

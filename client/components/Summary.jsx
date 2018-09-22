@@ -84,6 +84,8 @@ const Container = styled.div`
 
 const InnerContainer = styled.div`
   display: flex;
+  border-top: solid 1px #e1e1e1;
+  padding-top: 1rem;
 `;
 
 const Header = styled.p`

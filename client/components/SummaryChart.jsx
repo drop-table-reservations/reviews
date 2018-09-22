@@ -45,6 +45,7 @@ const Container = styled.div`
   flex-direction: column;
   max-width: 256px;
   min-width: 256px;
+  padding-top: 2rem;
 `;
 
 const InnerContainer = styled.div`
