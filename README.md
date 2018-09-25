@@ -26,6 +26,7 @@ Reviews module for DropTable, a front-end clone of OpenTable
 ### DOCKER, DEV
 - Requirements: Docker
 - npm install
+- npm run build
 - docker-compose up -d
 
 ### DOCKER, PROD
