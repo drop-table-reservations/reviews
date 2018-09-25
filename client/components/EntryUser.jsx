@@ -9,8 +9,7 @@ const EntryUser = ({ review }) => {
   const initials = nameArr[0][0] + nameArr[1][0];
   const colorIndex = username.charCodeAt(0) % 4;
 
-  const reviewString =
-    userReviews > 1 ? `${userReviews} reviews` : `${userReviews} review`;
+  const reviewString = userReviews > 1 ? `${userReviews} reviews` : `1 review`;
 
   return (
     <Container>

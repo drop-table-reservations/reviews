@@ -92,6 +92,7 @@ class Reviews extends React.Component {
       this.filters.stars = targetStars;
     }
     this.filters.page = 1;
+    this.filters.sort = 'Newest';
     this.setReviewsToDisplay();
   }
 

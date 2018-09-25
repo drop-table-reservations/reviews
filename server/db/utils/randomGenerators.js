@@ -44,16 +44,25 @@ const generateReview = () => {
         'Organic',
       ]),
     ],
-    review: faker.lorem.paragraph(faker.random.number({ min: 1, max: 4 })),
+    text: faker.lorem.paragraph(faker.random.number({ min: 1, max: 4 })),
   };
 
-  review.overallScore = Math.ceil(
-    (review.foodScore +
-      review.serviceScore +
-      review.ambianceScore +
-      review.valueScore) /
-      5,
+  const bias = faker.random.number({ min: -1, max: 1 });
+  review.overallScore = Math.max(
+    Math.max(
+      Math.ceil(
+        (review.foodScore +
+          review.serviceScore +
+          review.ambienceScore +
+          review.valueScore) /
+          4 +
+          bias,
+      ),
+      0,
+    ),
+    5,
   );
+
   review.wouldRecommend = review.overallScore >= 3;
 
   return review;
