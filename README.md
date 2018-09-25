@@ -12,28 +12,24 @@ Reviews module for DropTable, a front-end clone of OpenTable
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
 1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
 
 ## Development
 
-### Installing Dependencies
+### LOCAL
+- Requirements: MongoDB
+- npm install
+- npm run load-db
+- npm run start:dev (nodemon)
+- npm run build:dev (webpack watch)
 
-From within the root directory:
+### DOCKER, DEV
+- Requirements: Docker
+- npm install
+- docker-compose up -d
 
-```sh
-npm install -g webpack
-npm install
-```
+### DOCKER, PROD
+- Requirements: Docker
+- docker-compose -f docker-compose.prod.yml up -d
+
 
